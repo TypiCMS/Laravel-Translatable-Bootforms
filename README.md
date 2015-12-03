@@ -20,7 +20,7 @@ By importing this package, generating translatable forms using BootForms is a br
 2. Run the Composer update command
 
     ```bash
-    $ composer update
+    composer update
     ```
 
 3. In your app config, add the Service Provider in the `$providers` array **after** `BootFormsServiceProvider` and `TranslatableServiceProvider`
@@ -45,7 +45,7 @@ By importing this package, generating translatable forms using BootForms is a br
 5. Publish the configuration file
 
     ```bash
-    $ php artisan vendor:publish --provider="Propaganistas\LaravelTranslatableBootForms\TranslatableBootFormsServiceProvider" --tag="config"
+    php artisan vendor:publish --provider="Propaganistas\LaravelTranslatableBootForms\TranslatableBootFormsServiceProvider" --tag="config"
     ```
 
 ### Usage
