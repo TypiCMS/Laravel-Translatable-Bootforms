@@ -5,7 +5,7 @@
 [![Total Downloads](https://poser.pugx.org/propaganistas/laravel-translatable-bootforms/downloads)](https://packagist.org/packages/propaganistas/laravel-translatable-bootforms)
 [![License](https://poser.pugx.org/propaganistas/laravel-translatable-bootforms/license)](https://packagist.org/packages/propaganistas/laravel-translatable-bootforms)
 
-Allows [BootForms](https://github.com/adamwathan/bootforms) to work easily with [Laravel Translatable](https://github.com/dimsav/laravel-translatable)!
+Allows [BootForms](https://github.com/adamwathan/bootforms) to work flawlessly with [Laravel Translatable](https://github.com/dimsav/laravel-translatable)!
 
 By importing this package, generating translatable forms using BootForms is a breeze.
 
