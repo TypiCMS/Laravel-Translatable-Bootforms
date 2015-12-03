@@ -45,10 +45,10 @@ class FormBuilder extends _FormBuilder
      * {@inheritdoc}
      *
      */
-    public function unbind()
+    protected function unbindModel()
     {
         $this->model = null;
-        parent::unbind();
+        parent::unbindModel();
     }
 
     /**
