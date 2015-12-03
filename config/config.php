@@ -4,23 +4,6 @@ return [
 
 	/*
 	|--------------------------------------------------------------------------
-	| Form Group class
-	|--------------------------------------------------------------------------
-	|
-	| The class the form group of a localized form element will receive additionally.
-	| Useful for showing/hiding only form inputs of a certain language.
-	|
-	| E.g. for 'form-group-translation':
-	|   <div class="form-group form-group-translation">
-	|     <input ... />
-	|   </div>
-	|
-	*/
-
-	'form-group-class' => 'form-group-translation',
-
-	/*
-	|--------------------------------------------------------------------------
 	| Label override
 	|--------------------------------------------------------------------------
 	|

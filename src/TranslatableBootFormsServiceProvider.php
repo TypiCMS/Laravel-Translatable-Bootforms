@@ -37,7 +37,7 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider {
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../config/translatable-bootforms.php', 'translatable-bootforms'
+            __DIR__.'/../config/config.php', 'translatable-bootforms'
         );
 
         $locales = with(new TranslatableWrapper)->getLocales();
@@ -52,18 +52,8 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider {
             return $formBuilder;
         });
 
-        $this->app['translatableBootform.form.basic'] = $this->app->share(function ($app) {
-            return new BasicFormBuilder($app['translatableBootform.form.builder']);
-        });
-
-        $this->app['translatableBootform.form.horizontal'] = $this->app->share(function ($app) {
-            return new HorizontalFormBuilder($app['translatableBootform.form.builder']);
-        });
-
         $this->app['translatableBootform'] = $this->app->share(function ($app) use ($locales) {
-            $form = new TranslatableBootForm(
-                new BootForm($app['translatableBootform.form.basic'], $app['translatableBootform.form.horizontal'])
-            );
+            $form = new TranslatableBootForm($app['bootform']);
             $form->locales($locales);
 
             return $form;
@@ -79,8 +69,6 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider {
     {
         return array(
             'translatableBootform.form.builder',
-            'translatableBootform.form.basic',
-            'translatableBootform.form.horizontal',
             'translatableBootform',
         );
     }

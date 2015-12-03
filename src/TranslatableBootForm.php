@@ -123,11 +123,7 @@ class TranslatableBootForm
     public function __construct(BootForm $form)
     {
         $this->form = $form;
-        $this->config = [
-            'form-group-class' => config('translatable-bootforms::form-group-class'),
-            'input-locale-attribute' => config('translatable-bootforms::input-locale-attribute'),
-            'label-locale-indicator' => config('translatable-bootforms::label-locale-indicator'),
-        ];
+        $this->config = config('translatable-bootforms');
     }
 
     /**
@@ -141,7 +137,6 @@ class TranslatableBootForm
     {
         // New translatable form element.
         if (is_null($this->element())) {
-            $method = camel_case(substr($method, 12));
             $this->element($method);
             $this->arguments($this->mapArguments($parameters));
         }
@@ -237,7 +232,7 @@ class TranslatableBootForm
      * @param bool|null $clone
      * @return bool
      */
-    protected function cloneElement(bool $clone = null)
+    protected function cloneElement($clone = null)
     {
         return is_null($clone)
             ? $this->cloneElement
@@ -250,7 +245,7 @@ class TranslatableBootForm
      * @param bool|null $add
      * @return bool
      */
-    protected function translatableIndicator(bool $add = null)
+    protected function translatableIndicator($add = null)
     {
         return is_null($add)
             ? $this->translatableIndicator
@@ -299,12 +294,10 @@ class TranslatableBootForm
         $elements = [];
 
         if ($this->cloneElement()) {
-            $this->addMethod('addGroupClass', $this->config['form-group-class']);
-
             $originalArguments = $this->arguments();
             $originalMethods = $this->methods();
 
-            foreach ($this->locales() as $locale => $language) {
+            foreach ($this->locales() as $locale) {
                 $this->arguments($originalArguments);
                 $this->methods($originalMethods);
                 $this->overwriteArgument('name', $locale . '[' . $originalArguments['name'] . ']');
