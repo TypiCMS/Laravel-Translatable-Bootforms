@@ -75,7 +75,7 @@ public function postEdit($request)
 
 ```php
 // View
-{!! TranslatedBootForm::text('Name', 'name')->placeholder('My placeholder') !!}
+{!! TranslatableBootForm::text('Name', 'name')->placeholder('My placeholder') !!}
 
 // Output
 <div class="form-group form-group-translation">
