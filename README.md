@@ -23,7 +23,7 @@ By importing this package, generating translatable forms using BootForms is a br
     $ composer update
     ```
 
-3. In your app config, add the Service Provider *after* `BootFormsServiceProvider` and `TranslatableServiceProvider` in the `$providers` array
+3. In your app config, add the Service Provider in the `$providers` array **after** `BootFormsServiceProvider` and `TranslatableServiceProvider`
 
     ```php
     'providers' => [
@@ -52,7 +52,7 @@ By importing this package, generating translatable forms using BootForms is a br
 
 Simply use the `TranslatableBootForm` Facade as if it were `BootForm`! That's it. Multiple form inputs will now be generated for the locales set in Translatable's configuration file. They will have the corresponding value for each language and will save all of the translations without any code manipulation.
 
-Please review [BootForms documentation](https://github.com/adamwathan/bootforms#using-bootforms) if you're unsure how to use it.
+Please review [BootForms' documentation](https://github.com/adamwathan/bootforms#using-bootforms) if you're unsure how to use it.
 
 Example:
 
@@ -95,3 +95,10 @@ public function postEdit($request)
 ```
 
 For customizing the locale indicator in the label (and several other settings), please take a look at the configuration file.
+
+---
+
+#### To do
+
+- Implement unit testing
+- Optimize element behavior for non-textual input types (e.g. checkbox)

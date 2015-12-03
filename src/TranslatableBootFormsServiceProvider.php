@@ -77,12 +77,12 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider {
      */
     public function provides()
     {
-        return [
+        return array(
             'translatableBootform.form.builder',
             'translatableBootform.form.basic',
             'translatableBootform.form.horizontal',
             'translatableBootform',
-        ];
+        );
     }
 
 }

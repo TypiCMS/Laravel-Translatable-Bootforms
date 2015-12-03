@@ -13,6 +13,13 @@ class TranslatableBootForm
     protected $form;
 
     /**
+     * Array holding config values.
+     *
+     * @var array
+     */
+    protected $config;
+
+    /**
      * Array of locale keys.
      *
      * @var array
@@ -74,7 +81,7 @@ class TranslatableBootForm
      *
      * @param string $method
      * @param array  $parameters
-     * @return mixed|string
+     * @return \Propaganistas\LaravelTranslatableBootForms\TranslatableBootForm
      */
     public function __call($method, $parameters)
     {
@@ -173,27 +180,27 @@ class TranslatableBootForm
     /**
      * Get or set the current element.
      *
-     * @param bool|string $clone
+     * @param bool|null $clone
      * @return bool
      */
-    protected function cloneElement($clone = null)
+    protected function cloneElement(bool $clone = null)
     {
         return is_null($clone)
             ? $this->cloneElement
-            : ($this->cloneElement = $clone);
+            : ($this->cloneElement = (bool) $clone);
     }
 
     /**
      * Get or set the translatable indicator boolean.
      *
-     * @param bool|string $add
+     * @param bool|null $add
      * @return bool
      */
-    protected function translatableIndicator($add = null)
+    protected function translatableIndicator(bool $add = null)
     {
         return is_null($add)
             ? $this->translatableIndicator
-            : ($this->translatableIndicator = $add);
+            : ($this->translatableIndicator = (bool) $add);
     }
 
     /**
@@ -247,7 +254,7 @@ class TranslatableBootForm
                 $this->arguments($originalArguments);
                 $this->methods($originalMethods);
                 $this->overwriteArgument('name', $locale . '[' . $originalArguments['name'] . ']');
-                if ($this->addTranslatableIndicator()) {
+                if ($this->translatableIndicator()) {
                     $this->setTranslatableLabelIndicator($locale);
                 }
                 $this->addMethod('attribute', [$this->config['input-locale-attribute'], $locale]);
