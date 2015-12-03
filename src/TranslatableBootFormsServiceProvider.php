@@ -1,12 +1,6 @@
 <?php namespace Propaganistas\LaravelTranslatableBootForms;
 
-use AdamWathan\BootForms\BootForm;
 use Illuminate\Support\ServiceProvider;
-use Propaganistas\LaravelTranslatableBootForms\BootForms\BasicFormBuilder;
-use Propaganistas\LaravelTranslatableBootForms\BootForms\HorizontalFormBuilder;
-use Propaganistas\LaravelTranslatableBootForms\Form\FormBuilder;
-use Propaganistas\LaravelTranslatableBootForms\TranslatableBootForm;
-use Propaganistas\LaravelTranslatableBootForms\Translatable\TranslatableWrapper;
 
 class TranslatableBootFormsServiceProvider extends ServiceProvider {
 
@@ -40,10 +34,10 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider {
             __DIR__.'/../config/config.php', 'translatable-bootforms'
         );
 
-        $locales = with(new TranslatableWrapper)->getLocales();
+        $locales = with(new Translatable\TranslatableWrapper)->getLocales();
 
         $this->app['translatableBootform.form.builder'] = $this->app->share(function ($app) use ($locales) {
-            $formBuilder = new FormBuilder();
+            $formBuilder = new Form\FormBuilder();
             $formBuilder->setLocales($locales);
             $formBuilder->setErrorStore($app['adamwathan.form.errorstore']);
             $formBuilder->setOldInputProvider($app['adamwathan.form.oldinput']);
