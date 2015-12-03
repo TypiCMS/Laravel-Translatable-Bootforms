@@ -62,6 +62,60 @@ class TranslatableBootForm
     protected $translatableIndicator = false;
 
     /**
+     * Array holding the mappable element arguments.
+     *
+     * @var array
+     */
+    private $mappableArguments = [
+        'text'           => ['label', 'name'],
+        'textarea'       => ['label', 'name'],
+        'password'       => ['label', 'name'],
+        'date'           => ['label', 'name'],
+        'email'          => ['label', 'name'],
+        'file'           => ['label', 'name'],
+        'inputGroup'     => ['label', 'name'],
+        'radio'          => ['label', 'name'],
+        'inlineRadio'    => ['label', 'name'],
+        'checkbox'       => ['label', 'name'],
+        'inlineCheckbox' => ['label', 'name'],
+        'select'         => ['label', 'name', 'options'],
+        'button'         => ['label', 'name', 'type'],
+        'submit'         => ['value', 'type'],
+        'hidden'         => ['name'],
+        'label'          => ['label'],
+        'open'           => [],
+        'openHorizontal' => ['columnSizes'],
+        'close'          => [],
+    ];
+
+    /**
+     * Array holding the methods to call during element behavior processing.
+     *
+     * @var array
+     */
+    private $elementBehaviors = [
+        'text'           => ['cloneElement', 'translatableIndicator'],
+        'textarea'       => ['cloneElement', 'translatableIndicator'],
+        'password'       => ['cloneElement', 'translatableIndicator'],
+        'date'           => ['cloneElement', 'translatableIndicator'],
+        'email'          => ['cloneElement', 'translatableIndicator'],
+        'file'           => ['cloneElement', 'translatableIndicator'],
+        'inputGroup'     => ['cloneElement', 'translatableIndicator'],
+        'radio'          => ['cloneElement', 'translatableIndicator'],
+        'inlineRadio'    => ['cloneElement', 'translatableIndicator'],
+        'checkbox'       => ['cloneElement', 'translatableIndicator'],
+        'inlineCheckbox' => ['cloneElement', 'translatableIndicator'],
+        'select'         => ['cloneElement', 'translatableIndicator'],
+        'button'         => ['cloneElement'],
+        'submit'         => ['cloneElement'],
+        'hidden'         => ['cloneElement'],
+        'label'          => [],
+        'open'           => [],
+        'openHorizontal' => [],
+        'close'          => [],
+    ];
+
+    /**
      * Form constructor.
      *
      * @param \AdamWathan\BootForms\BootForm $form
@@ -301,32 +355,10 @@ class TranslatableBootForm
      */
     protected function applyElementBehavior()
     {
-        switch ($this->element()) {
-            case 'text':
-            case 'textarea':
-            case 'password':
-            case 'date':
-            case 'email':
-            case 'file':
-            case 'radio':
-            case 'inlineRadio':
-            case 'checkbox':
-            case 'inlineCheckbox':
-            case 'select':
-            case 'inputGroup':
-                $this->cloneElement(true);
-                $this->translatableIndicator(true);
-                break;
-            case 'hidden':
-            case 'button':
-            case 'submit':
-                $this->cloneElement(true);
-                break;
-            case 'open':
-            case 'openHorizontal':
-            case 'close':
-            default:
-                break;
+        $behaviors = isset($this->elementBehaviors[$this->element()]) ? $this->elementBehaviors[$this->element()] : [];
+
+        foreach ($behaviors as $behavior) {
+            $this->{$behavior}(true);
         }
     }
 
@@ -338,43 +370,7 @@ class TranslatableBootForm
      */
     protected function mapArguments(array $arguments)
     {
-        switch ($this->element()) {
-            case 'text':
-            case 'textarea':
-            case 'password':
-            case 'date':
-            case 'email':
-            case 'file':
-            case 'inputGroup':
-            case 'radio':
-            case 'inlineRadio':
-            case 'checkbox':
-            case 'inlineCheckbox':
-                $keys = ['label', 'name'];
-                break;
-            case 'select':
-                $keys = ['label', 'name', 'options'];
-                break;
-            case 'button':
-                $keys = ['value', 'name', 'type'];
-                break;
-            case 'submit':
-                $keys = ['value', 'type'];
-                break;
-            case 'hidden':
-                $keys = ['name'];
-                break;
-            case 'label':
-                $keys = ['label'];
-                break;
-            case 'openHorizontal':
-                $keys = ['columnSizes'];
-                break;
-            case 'open':
-            case 'close':
-            default:
-                return [];
-        }
+        $keys = isset($this->mappableArguments[$this->element()]) ? $this->mappableArguments[$this->element()] : [];
 
         return array_combine(array_slice($keys, 0, count($arguments)), $arguments);
     }
