@@ -1,0 +1,12 @@
+filter:
+    paths:
+        - 'src/*'
+    excluded_paths:
+        - 'tests/*'
+        - 'bin/*'
+        - 'spec/*'
+        - 'stub/*'
+        - 'coverage/*'
+        - 'vendor/*'
+checks:
+  php: true
