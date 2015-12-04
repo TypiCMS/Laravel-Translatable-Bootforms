@@ -72,22 +72,4 @@ class FormBuilder extends _FormBuilder
 
         return $this->escape($this->model->{$name});
     }
-
-    /**
-     * Create a label.
-     *
-     * @param string $label
-     * @return \AdamWathan\Form\Elements\Label
-     */
-    public function label($label)
-    {
-        // Wrap the label title in span.
-        if (strpos($label, '<span') !== 0) {
-            $length = strpos($label, '<') ?: strlen($label);
-            $label_title = substr($label, 0, $length);
-            $label = str_replace($label_title, '<span>' . $label_title . '</span>', $label);
-        }
-
-        return new Label($label);
-    }
 }
