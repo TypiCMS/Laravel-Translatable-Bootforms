@@ -100,5 +100,4 @@ For customizing the locale indicator in the label (and several other settings), 
 
 #### To do
 
-- Implement unit testing
 - Optimize element behavior for non-textual input types (e.g. checkbox)

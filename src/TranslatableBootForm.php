@@ -85,6 +85,7 @@ class TranslatableBootForm
         'label'          => ['label'],
         'open'           => [],
         'openHorizontal' => ['columnSizes'],
+        'bind'           => ['model'],
         'close'          => [],
     ];
 
@@ -139,10 +140,14 @@ class TranslatableBootForm
         if (is_null($this->element())) {
             $this->element($method);
             $this->arguments($this->mapArguments($parameters));
-        }
-        // Calling methods on the translatable form element.
+        } // Calling methods on the translatable form element.
         else {
             $this->addMethod($method, $parameters);
+        }
+
+        // Execute bind or close immediately.
+        if (in_array($method, ['bind', 'close'])) {
+            return $this->render();
         }
 
         return $this;
@@ -277,7 +282,7 @@ class TranslatableBootForm
     {
         $methods = $this->methods();
 
-        $methods[] = compact('name','parameters');
+        $methods[] = compact('name', 'parameters');
 
         $this->methods($methods);
     }
@@ -326,18 +331,19 @@ class TranslatableBootForm
         // Create element using arguments.
         $element = $this->form->{$this->element()}(...array_values($this->arguments()));
 
-        // Apply requested methods.
-        foreach ($this->methods() as $method) {
-            $methodName = $method['name'];
-            $methodParameters = $method['parameters'];
-            if (is_array($methodParameters)) {
-                $element->{$methodName}(...$methodParameters);
-            } elseif (!empty($methodParameters)) {
-                $element->{$methodName}($methodParameters);
-            } else {
-                $element->{$methodName}();
-            }
+        // Elements such as 'bind' do not return renderable stuff and do not accept methods.
+        if ($element) {
+            // Apply requested methods.
+            foreach ($this->methods() as $method) {
+                $methodName = $method['name'];
+                $methodParameters = $method['parameters'];
+                if (!empty($methodParameters)) {
+                    $element->{$methodName}(...$methodParameters);
+                } else {
+                    $element->{$methodName}();
+                }
 
+            }
         }
 
         return $element;
