@@ -1,6 +1,6 @@
 # Laravel Translatable BootForms
 
-[![Build Status](https://travis-ci.org/Propaganistas/Laravel-Translatable-BootForms.svg)](https://travis-ci.org/Propaganistas/Laravel-Translatable-BootForms)
+[![Build Status](https://travis-ci.org/Propaganistas/Laravel-Translatable-Bootforms.svg?branch=master)](https://travis-ci.org/Propaganistas/Laravel-Translatable-Bootforms)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Propaganistas/Laravel-Translatable-BootForms/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Propaganistas/Laravel-Translatable-BootForms/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/Propaganistas/Laravel-Translatable-Bootforms/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Propaganistas/Laravel-Translatable-Bootforms/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/propaganistas/laravel-translatable-bootforms/v/stable)](https://packagist.org/packages/propaganistas/laravel-translatable-bootforms)
@@ -12,6 +12,8 @@ Make [BootForms](https://github.com/adamwathan/bootforms) work flawlessly with [
 By importing this package, generating translatable forms using BootForms is a breeze.
 
 ### Installation
+
+This package requires PHP >=5.6
 
 1. In the `require` key of `composer.json` file add the following
 
