@@ -82,11 +82,11 @@ public function postEdit($request)
 {!! TranslatableBootForm::text('Name', 'name')->placeholder('My placeholder') !!}
 
 // Output
-<div class="form-group">
+<div class="form-group form-group-translation">
     <label for="en[name]">Name (en)</label>
     <input type="text" name="en[name]" class="form-control" placeholder="My Placeholder" data-language="en" />
 </div>
-<div class="form-group">
+<div class="form-group form-group-translation">
     <label for="nl[name]">Name (nl)</label>
     <input type="text" name="nl[name]" class="form-control" placeholder="My Placeholder" data-language="nl" />
 </div>
