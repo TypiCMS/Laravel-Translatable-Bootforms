@@ -13,7 +13,7 @@ return [
 	| 
 	| Available placeholders:
 	|   %label   The original (eventually translated) label.
-	|   %locale  The locale
+	|   %locale  The locale  (e.g. 'en')
 	| 
 	| E.g. for '%label (%locale)' and TranslatableBootForm::text(trans('nameTranslationKey'), 'name')
 	| this would yield the following labels:
@@ -26,12 +26,34 @@ return [
 
 	/*
 	|--------------------------------------------------------------------------
+	| Form Group class
+	|--------------------------------------------------------------------------
+	|
+	| The class to apply to the form group of localized form elements.
+	| Useful for showing/hiding only form inputs of a certain language.
+	| By styling this class to be hidden by default and then have Javascript show/hide
+	| the form group based on the language that it contains, flickering of form elements
+	| can be prevented.
+	|
+	| Available placeholders:
+	|   %locale  The locale (e.g. 'en')
+	|
+	| E.g. for 'form-group-translation':
+	|   <div class="form-group form-group-translation">
+	|     ...
+	|   </div>
+	*/
+
+	'form-group-class' => 'form-group-translation',
+
+	/*
+	|--------------------------------------------------------------------------
 	| Input locale attribute
 	|--------------------------------------------------------------------------
 	|
 	| The attribute to use when attaching the corresponding locale to a localized form element.
 	| Useful for showing/hiding only form inputs of a certain language.
-	| 
+	|
 	| E.g. for 'data-language':
 	|   <input name="en[someName]" data-language="en" />
 	|

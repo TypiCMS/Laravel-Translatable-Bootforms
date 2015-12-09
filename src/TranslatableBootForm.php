@@ -282,6 +282,8 @@ class TranslatableBootForm
     {
         $methods = $this->methods();
 
+        $parameters = is_array($parameters) ? $parameters : [$parameters];
+
         $methods[] = compact('name', 'parameters');
 
         $this->methods($methods);
@@ -309,7 +311,12 @@ class TranslatableBootForm
                 if ($this->translatableIndicator()) {
                     $this->setTranslatableLabelIndicator($locale);
                 }
-                $this->addMethod('attribute', [$this->config['input-locale-attribute'], $locale]);
+                if (!empty($this->config['form-group-class'])) {
+                    $this->addMethod('addGroupClass', str_replace('%locale', $locale, 'form-group-translation'));
+                }
+                if (!empty($this->config['input-locale-attribute'])) {
+                    $this->addMethod('attribute', [$this->config['input-locale-attribute'], $locale]);
+                }
                 $elements[] = $this->createInput();
             }
         } else {
