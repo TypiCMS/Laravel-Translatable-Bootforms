@@ -102,7 +102,7 @@ public function postEdit($request)
 
 If you need to apply a method *only for certain locales*, suffix the method with `ForLocale` and pass the locale or an array of locales as the first parameter.
 
-```
+```php
 TranslatableBootForm::text('Name','name')
                     ->dataForLocale('en', 'attributeName', 'attributeValue')
                     ->addClassForLocale(['en', 'nl'], 'addedClass')
