@@ -18,7 +18,7 @@ This package requires PHP >=5.6
 1. In the `require` key of `composer.json` file add the following
 
     ```json
-    "propaganistas/laravel-translatable-bootforms": "~1.0"
+    "propaganistas/laravel-translatable-bootforms": "~1.1"
     ```
 
 2. Run the Composer update command
