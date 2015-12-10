@@ -62,7 +62,8 @@ Example:
 
 ```php
 // View
-{!! BootForm::text('Name', 'name')->placeholder('My placeholder') !!}
+{!! BootForm::text('Name', 'name')
+            ->placeholder('My placeholder') !!}
 
 // Output
 <div class="form-group">
@@ -79,7 +80,8 @@ public function postEdit($request)
 
 ```php
 // View
-{!! TranslatableBootForm::text('Name', 'name')->placeholder('My placeholder') !!}
+{!! TranslatableBootForm::text('Name', 'name')
+                        ->placeholder('My placeholder') !!}
 
 // Output
 <div class="form-group form-group-translation">
@@ -96,6 +98,14 @@ public function postEdit($request)
 {
     $someModel->save($request->all());
 }
+```
+
+If you need to apply a method *only for certain locales*, suffix the method with `ForLocale` and pass the locale or an array of locales as the first parameter.
+
+```
+TranslatableBootForm::text('Name','name')
+                    ->dataForLocale('en', 'attributeName', 'attributeValue')
+                    ->addClassForLocale(['en', 'nl'], 'addedClass')
 ```
 
 For customizing the locale indicator in the label (and several other settings), please take a look at the configuration file.

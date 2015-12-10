@@ -262,6 +262,15 @@ class TestTranslatableBootForms extends TestCase
         $this->assertEquals($expected, $result);
     }
 
+    public function testRenderTranslatableInputWithLocaleSpecificMethods()
+    {
+        $this->form->open()->render();
+
+        $expected = '<div class="form-group form-group-translation"><label class="control-label newClass" for="en[input]">Input (en)</label><input type="text" name="en[input]" id="en[input]" class="form-control" required="required" data-all="test" data-language="en"></div><div class="form-group form-group-translation"><label class="control-label newClass" for="nl[input]">Input (nl)</label><input type="text" name="nl[input]" id="nl[input]" class="form-control" data-test="ok" data-all="test" data-language="nl"></div>';
+        $result = $this->form->text('Input', 'input')->dataForLocale('nl', 'test', 'ok')->labelClassForLocale(['nl', 'en'], 'newClass')->requiredForLocale('en')->data('all', 'test')->render();
+        $this->assertEquals($expected, $result);
+    }
+
     public function testRenderTranslatableInputWhenCastedToString()
     {
         $this->form->open()->render();

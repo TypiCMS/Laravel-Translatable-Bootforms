@@ -317,7 +317,7 @@ class TranslatableBootForm
                 if (!empty($this->config['input-locale-attribute'])) {
                     $this->addMethod('attribute', [$this->config['input-locale-attribute'], $locale]);
                 }
-                $elements[] = $this->createInput();
+                $elements[] = $this->createInput($locale);
             }
         } else {
             $elements[] = $this->createInput();
@@ -331,9 +331,10 @@ class TranslatableBootForm
     /**
      * Creates an input element using the supplied arguments and methods.
      *
+     * @param string|null $currentLocale
      * @return mixed
      */
-    protected function createInput()
+    protected function createInput($currentLocale = null)
     {
         // Create element using arguments.
         $element = $this->form->{$this->element()}(...array_values($this->arguments()));
@@ -344,6 +345,19 @@ class TranslatableBootForm
             foreach ($this->methods() as $method) {
                 $methodName = $method['name'];
                 $methodParameters = $method['parameters'];
+
+                // Check if method is locale-specific.
+                if (ends_with($methodName, 'ForLocale')) {
+                    $methodName = strstr($methodName, 'ForLocale', true);
+                    $locales = array_shift($methodParameters);
+                    $locales = is_array($locales) ? $locales : [$locales];
+                    if (!is_null($currentLocale) && !in_array($currentLocale, $locales)) {
+                        // Method should not be applied for this locale.
+                        continue;
+                    }
+                }
+
+                // Call method.
                 if (!empty($methodParameters)) {
                     $element->{$methodName}(...$methodParameters);
                 } else {
