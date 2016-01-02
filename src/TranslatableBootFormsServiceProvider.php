@@ -34,13 +34,11 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider {
             __DIR__.'/../config/config.php', 'translatable-bootforms'
         );
 
-        $locales = with(new Translatable\TranslatableWrapper)->getLocales();
-
         // Override BootForm's form builder in order to get model binding
         // between BootForm & TranslatableBootForm working.
-        $this->app['adamwathan.form'] = $this->app->share(function ($app) use ($locales) {
+        $this->app['adamwathan.form'] = $this->app->share(function ($app) {
             $formBuilder = new Form\FormBuilder();
-            $formBuilder->setLocales($locales);
+            $formBuilder->setLocales($this->getLocales());
             $formBuilder->setErrorStore($app['adamwathan.form.errorstore']);
             $formBuilder->setOldInputProvider($app['adamwathan.form.oldinput']);
             $formBuilder->setToken($app['session.store']->getToken());
@@ -49,9 +47,9 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider {
         });
 
         // Define TranslatableBootForm.
-        $this->app['translatable-bootform'] = $this->app->share(function ($app) use ($locales) {
+        $this->app['translatable-bootform'] = $this->app->share(function ($app) {
             $form = new TranslatableBootForm($app['bootform']);
-            $form->locales($locales);
+            $form->locales($this->getLocales());
 
             return $form;
         });
@@ -68,6 +66,16 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider {
             'adamwathan.form',
             'translatable-bootform',
         );
+    }
+    
+    /**
+     * Get Translatable's locales.
+     * 
+     * @return array
+     */
+    protected function getLocales()
+    {
+        return with(new Translatable\TranslatableWrapper)->getLocales();
     }
 
 }
