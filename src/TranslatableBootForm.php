@@ -119,9 +119,9 @@ class TranslatableBootForm
     /**
      * Form constructor.
      *
-     * @param \AdamWathan\BootForms\BootForm $form
+     * @param object $form
      */
-    public function __construct(BootForm $form)
+    public function __construct($form)
     {
         $this->form = $form;
         $this->config = config('translatable-bootforms');
