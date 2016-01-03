@@ -67,15 +67,15 @@ class TranslatableBootForm
      * @var array
      */
     private $mappableArguments = [
-        'text'           => ['label', 'name'],
+        'text'           => ['label', 'name', 'value'],
         'textarea'       => ['label', 'name'],
         'password'       => ['label', 'name'],
-        'date'           => ['label', 'name'],
-        'email'          => ['label', 'name'],
-        'file'           => ['label', 'name'],
-        'inputGroup'     => ['label', 'name'],
-        'radio'          => ['label', 'name'],
-        'inlineRadio'    => ['label', 'name'],
+        'date'           => ['label', 'name', 'value'],
+        'email'          => ['label', 'name', 'value'],
+        'file'           => ['label', 'name', 'value'],
+        'inputGroup'     => ['label', 'name', 'value'],
+        'radio'          => ['label', 'name', 'value'],
+        'inlineRadio'    => ['label', 'name', 'value'],
         'checkbox'       => ['label', 'name'],
         'inlineCheckbox' => ['label', 'name'],
         'select'         => ['label', 'name', 'options'],
