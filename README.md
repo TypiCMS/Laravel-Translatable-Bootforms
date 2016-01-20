@@ -13,8 +13,6 @@ By importing this package, generating translatable forms using BootForms is a br
 
 ### Installation
 
-This package requires PHP >=5.6
-
 1. In the `require` key of `composer.json` file add the following
 
     ```json

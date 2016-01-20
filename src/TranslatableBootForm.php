@@ -337,7 +337,7 @@ class TranslatableBootForm
     protected function createInput($currentLocale = null)
     {
         // Create element using arguments.
-        $element = $this->form->{$this->element()}(...array_values($this->arguments()));
+        $element = call_user_func_array([$this->form, $this->element()], array_values($this->arguments()));
 
         // Elements such as 'bind' do not return renderable stuff and do not accept methods.
         if ($element) {
@@ -359,7 +359,7 @@ class TranslatableBootForm
 
                 // Call method.
                 if (!empty($methodParameters)) {
-                    $element->{$methodName}(...$methodParameters);
+                    call_user_func_array([$element, $methodName], $methodParameters);
                 } else {
                     $element->{$methodName}();
                 }
