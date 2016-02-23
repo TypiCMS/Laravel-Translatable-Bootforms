@@ -1,7 +1,5 @@
 <?php namespace Propaganistas\LaravelTranslatableBootForms;
 
-use AdamWathan\BootForms\BootForm;
-
 class TranslatableBootForm
 {
 
