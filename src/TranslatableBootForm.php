@@ -357,7 +357,7 @@ class TranslatableBootForm
 
                 // Call method.
                 if (!empty($methodParameters)) {
-                    call_user_func_array([$element, $methodName], $this->replaceInputNameRecursively($methodParameters));
+                    call_user_func_array([$element, $methodName], $this->replacePlaceholdersRecursively($methodParameters, $currentLocale));
                 } else {
                     $element->{$methodName}();
                 }
@@ -371,18 +371,19 @@ class TranslatableBootForm
     /**
      * Replaces %name recursively with the proper input name.
      *
-     * @param $parameter
+     * @param mixed $parameter
+     * @param string $currentLocale
      * @return mixed
      */
-    protected function replaceInputNameRecursively($parameter)
+    protected function replacePlaceholdersRecursively($parameter, $currentLocale)
     {
         if (is_array($parameter)) {
             foreach ($parameter as $param) {
-                $this->replaceInputNameRecursively($param);
+                $this->replacePlaceholdersRecursively($param, $currentLocale);
             }
         }
 
-        return str_replace('%name', $this->arguments()['name'], $parameter);
+        return str_replace(['%name', '%locale'], [$this->arguments()['name'], $currentLocale], $parameter);
     }
 
     /**

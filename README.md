@@ -98,20 +98,21 @@ public function postEdit($request)
 }
 ```
 
-You can use the `%name` placeholder while specifying parameters. The placeholder will be replaced with the corresponding input name.
+You can use the `%name` and `%locale` placeholders while specifying parameters. The placeholder will be replaced with the corresponding input name or locale.
 This can be useful for two-way data binding libraries such as Angular.js or Vue.js. E.g.
 ```php
 {!! TranslatableBootForm::text('Title', 'title')
-                        ->attribute('some-attribute', 'Name: %name') !!}
+                        ->attribute('some-attribute', 'Name: %name')
+                        ->attribute('another-attribute', 'Locale: %locale') !!}
 
 // Output
 <div class="form-group form-group-translation">
     <label for="en[title]">Title (en)</label>
-    <input type="text" name="en[title]" class="form-control" some-attribute="Name: en[title]" data-language="en" />
+    <input type="text" name="en[title]" class="form-control" some-attribute="Name: en[title]" another-attribute="Locale: en" data-language="en" />
 </div>
 <div class="form-group form-group-translation">
     <label for="nl[title]">Title (nl)</label>
-    <input type="text" name="nl[title]" class="form-control" some-attribute="Name: nl[title]" data-language="nl" />
+    <input type="text" name="nl[title]" class="form-control" some-attribute="Name: nl[title]" another-attribute="Locale: nl" data-language="nl" />
 </div>
 ```
 
