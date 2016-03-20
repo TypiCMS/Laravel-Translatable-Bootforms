@@ -131,9 +131,3 @@ TranslatableBootForm::text('Name','name')
 ```
 
 For customizing the locale indicator in the label (and several other settings), please take a look at the configuration file.
-
----
-
-#### To do
-
-- Optimize element behavior for non-textual input types (e.g. checkbox)
