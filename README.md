@@ -116,7 +116,13 @@ This can be useful for two-way data binding libraries such as Angular.js or Vue.
 </div>
 ```
 
-If you need to apply a method *only for certain locales*, suffix the method with `ForLocale` and pass the locale or an array of locales as the first parameter.
+To render a *form element only for some chosen locales*, explicitly call `renderLocale()` as the final method and pass the locale or an array of locales as the first parameter:
+```php
+TranslatableBootForm::text('Name','name')
+                    ->renderLocale('en')
+```
+
+If you need to apply a *method only for certain locales*, suffix the method with `ForLocale` and pass the locale or an array of locales as the first parameter:
 
 ```php
 TranslatableBootForm::text('Name','name')

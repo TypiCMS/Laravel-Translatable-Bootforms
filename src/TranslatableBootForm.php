@@ -302,7 +302,14 @@ class TranslatableBootForm
             $originalArguments = $this->arguments();
             $originalMethods = $this->methods();
 
-            foreach ($this->locales() as $locale) {
+            $locales = $this->locales();
+            // Check if a custom locale set is requested.
+            if ($count = func_num_args()) {
+                $args = ($count == 1 ? head(func_get_args()) : func_get_args());
+                $locales = array_intersect($locales, (array) $args);
+            }
+
+            foreach ($locales as $locale) {
                 $this->arguments($originalArguments);
                 $this->methods($originalMethods);
                 $this->overwriteArgument('name', $locale . '[' . $originalArguments['name'] . ']');
@@ -324,6 +331,16 @@ class TranslatableBootForm
         $this->reset();
 
         return implode('', $elements);
+    }
+
+    /**
+     * Shortcut method for locale-specific rendering.
+     *
+     * @return string
+     */
+    public function renderLocale()
+    {
+        return call_user_func_array([$this, 'render'], func_get_args());
     }
 
     /**
