@@ -60,7 +60,7 @@ class FormBuilder extends _FormBuilder
      */
     protected function getModelValue($name)
     {
-        $inputName = preg_split('/\./', $name, - 1, PREG_SPLIT_NO_EMPTY);
+        $inputName = preg_split('/[\[\]]+/', $name, - 1, PREG_SPLIT_NO_EMPTY);
         if (count($inputName) == 2 && in_array($inputName[0], $this->locales)) {
             list($lang, $name) = $inputName;
             $value = isset($this->model->translate($lang)->{$name})
