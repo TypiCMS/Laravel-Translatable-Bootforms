@@ -150,7 +150,7 @@ class TestTranslatableBootForms extends TestCase
         $formBuilder = $formBuilderProperty->getValue($builder);
 
         $reflectionFormbuilder = new \ReflectionClass($formBuilder);
-        $modelProperty = $reflectionFormbuilder->getProperty('model');
+        $modelProperty = $reflectionFormbuilder->getProperty('boundData');
         $modelProperty->setAccessible(true);
         $model = $modelProperty->getValue($formBuilder);
 
@@ -176,7 +176,7 @@ class TestTranslatableBootForms extends TestCase
         $formBuilder = $formBuilderProperty->getValue($builder);
 
         $reflectionFormbuilder = new \ReflectionClass($formBuilder);
-        $modelProperty = $reflectionFormbuilder->getProperty('model');
+        $modelProperty = $reflectionFormbuilder->getProperty('boundData');
         $modelProperty->setAccessible(true);
         $model = $modelProperty->getValue($formBuilder);
 
@@ -209,7 +209,7 @@ class TestTranslatableBootForms extends TestCase
         $formBuilder = $formBuilderProperty->getValue($builder);
 
         $reflectionFormbuilder = new \ReflectionClass($formBuilder);
-        $modelProperty = $reflectionFormbuilder->getProperty('model');
+        $modelProperty = $reflectionFormbuilder->getProperty('boundData');
         $modelProperty->setAccessible(true);
         $model = $modelProperty->getValue($formBuilder);
 
@@ -237,7 +237,7 @@ class TestTranslatableBootForms extends TestCase
         $formBuilder = $formBuilderProperty->getValue($builder);
 
         $reflectionFormbuilder = new \ReflectionClass($formBuilder);
-        $modelProperty = $reflectionFormbuilder->getProperty('model');
+        $modelProperty = $reflectionFormbuilder->getProperty('boundData');
         $modelProperty->setAccessible(true);
         $model = $modelProperty->getValue($formBuilder);
 
