@@ -2,6 +2,7 @@
 
 use AdamWathan\Form\Elements\Label;
 use AdamWathan\Form\FormBuilder as _FormBuilder;
+use Propaganistas\LaravelTranslatableBootForms\Form\Binding\BoundData;
 
 class FormBuilder extends _FormBuilder
 {
@@ -14,12 +15,6 @@ class FormBuilder extends _FormBuilder
     protected $locales;
 
     /**
-     * Since $model is a private property in the parent class, we need to define the model in this child class as well.
-     * {@inheritdoc}
-     */
-    protected $model;
-
-    /**
      * Sets the available locales for translatable fields.
      *
      * @param array $locales
@@ -29,26 +24,9 @@ class FormBuilder extends _FormBuilder
         $this->locales = $locales;
     }
 
-    /**
-     * Since $model is a private property in the parent class, we need to bind the model in this child class as well.
-     * {@inheritdoc}
-     *
-     */
-    public function bind($model)
+    public function bind($data)
     {
-        $this->model = is_array($model) ? (object) $model : $model;
-        parent::bind($model);
-    }
-
-    /**
-     * Since $model is a private property in the parent class, we need to unbind the model in this child class as well.
-     * {@inheritdoc}
-     *
-     */
-    protected function unbindModel()
-    {
-        $this->model = null;
-        parent::unbindModel();
+        $this->boundData = new BoundData($data);
     }
 
     /**
@@ -58,18 +36,18 @@ class FormBuilder extends _FormBuilder
      * @param string $name key
      * @return string value
      */
-    protected function getModelValue($name)
+    protected function getBoundValue($name, $default)
     {
         $inputName = preg_split('/[\[\]]+/', $name, - 1, PREG_SPLIT_NO_EMPTY);
         if (count($inputName) == 2 && in_array($inputName[0], $this->locales)) {
             list($lang, $name) = $inputName;
-            $value = isset($this->model->translate($lang)->{$name})
-                ? $this->model->translate($lang)->{$name}
+            $value = isset($this->boundData->data()->translate($lang)->{$name})
+                ? $this->boundData->data()->translate($lang)->{$name}
                 : '';
 
             return $this->escape($value);
         }
 
-        return $this->escape($this->model->{$name});
+        return $this->escape($this->boundData->get($name, $default));
     }
 }
