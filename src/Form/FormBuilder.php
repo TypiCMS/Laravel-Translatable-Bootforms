@@ -1,8 +1,8 @@
 <?php namespace Propaganistas\LaravelTranslatableBootForms\Form;
 
+use AdamWathan\Form\Binding\BoundData;
 use AdamWathan\Form\Elements\Label;
 use AdamWathan\Form\FormBuilder as _FormBuilder;
-use Propaganistas\LaravelTranslatableBootForms\Form\Binding\BoundData;
 
 class FormBuilder extends _FormBuilder
 {
