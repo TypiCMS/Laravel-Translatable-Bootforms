@@ -16,7 +16,7 @@ By importing this package, generating translatable forms using BootForms is a br
 1. In the `require` key of `composer.json` file add the following
 
     ```json
-    "propaganistas/laravel-translatable-bootforms": "~1.1"
+    "propaganistas/laravel-translatable-bootforms": "~1.3"
     ```
 
 2. Run the Composer update command
