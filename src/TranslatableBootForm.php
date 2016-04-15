@@ -312,11 +312,7 @@ class TranslatableBootForm
             foreach ($locales as $locale) {
                 $this->arguments($originalArguments);
                 $this->methods($originalMethods);
-                if (config('app.translator') === 'spatie') {
-                    $this->overwriteArgument('name', $originalArguments['name'] . '[' . $locale . ']');
-                } else {
-                    $this->overwriteArgument('name', $locale . '[' . $originalArguments['name'] . ']');
-                }
+                $this->overwriteArgument('name', $originalArguments['name'] . '[' . $locale . ']');
                 if ($this->translatableIndicator()) {
                     $this->setTranslatableLabelIndicator($locale);
                 }

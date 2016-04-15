@@ -67,15 +67,15 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider {
             'translatable-bootform',
         );
     }
-    
+
     /**
-     * Get Translatable's locales.
-     * 
+     * Get locales.
+     *
      * @return array
      */
     protected function getLocales()
     {
-        return with(new Translatable\TranslatableWrapper)->getLocales();
+        return config('translatable-bootforms.locales');
     }
 
 }

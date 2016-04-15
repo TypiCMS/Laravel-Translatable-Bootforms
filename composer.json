@@ -1,12 +1,16 @@
 {
-    "name": "propaganistas/laravel-translatable-bootforms",
-    "description": "Empowers adamwathan/bootforms with dimsav/laravel-translatable.",
+    "name": "TypiCMS/laravel-translatable-bootforms",
+    "description": "Empowers adamwathan/bootforms with spatie/laravel-translatable.",
     "keywords": ["laravel", "bootforms", "translatable", "i18n", "form"],
     "license": "MIT",
     "authors": [
         {
             "name": "Propaganistas",
             "email": "Propaganistas@users.noreply.github.com"
+        },
+        {
+            "name": "Samuel De Backer",
+            "email": "samuel@typidesign.be"
         }
     ],
     "require": {
@@ -21,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Propaganistas\\LaravelTranslatableBootForms\\": "src/"
+            "TypiCMS\\LaravelTranslatableBootForms\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Propaganistas\\LaravelTranslatableBootForms\\Tests\\": "tests/"
+            "TypiCMS\\LaravelTranslatableBootForms\\Tests\\": "tests/"
         }
     },
     "prefer-stable": true
