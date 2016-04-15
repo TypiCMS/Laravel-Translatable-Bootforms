@@ -1,22 +1,24 @@
 # Laravel Translatable BootForms
 
-[![Build Status](https://travis-ci.org/Propaganistas/Laravel-Translatable-Bootforms.svg?branch=master)](https://travis-ci.org/Propaganistas/Laravel-Translatable-Bootforms)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Propaganistas/Laravel-Translatable-BootForms/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Propaganistas/Laravel-Translatable-BootForms/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/Propaganistas/Laravel-Translatable-Bootforms/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Propaganistas/Laravel-Translatable-Bootforms/?branch=master)
-[![Latest Stable Version](https://poser.pugx.org/propaganistas/laravel-translatable-bootforms/v/stable)](https://packagist.org/packages/propaganistas/laravel-translatable-bootforms)
-[![Total Downloads](https://poser.pugx.org/propaganistas/laravel-translatable-bootforms/downloads)](https://packagist.org/packages/propaganistas/laravel-translatable-bootforms)
-[![License](https://poser.pugx.org/propaganistas/laravel-translatable-bootforms/license)](https://packagist.org/packages/propaganistas/laravel-translatable-bootforms)
+[![Build Status](https://travis-ci.org/TypiCMS/Laravel-Translatable-Bootforms.svg?branch=master)](https://travis-ci.org/TypiCMS/Laravel-Translatable-Bootforms)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/TypiCMS/Laravel-Translatable-BootForms/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/TypiCMS/Laravel-Translatable-BootForms/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/TypiCMS/Laravel-Translatable-Bootforms/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/TypiCMS/Laravel-Translatable-Bootforms/?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/typicms/laravel-translatable-bootforms/v/stable)](https://packagist.org/packages/typicms/laravel-translatable-bootforms)
+[![Total Downloads](https://poser.pugx.org/typicms/laravel-translatable-bootforms/downloads)](https://packagist.org/packages/typicms/laravel-translatable-bootforms)
+[![License](https://poser.pugx.org/typicms/laravel-translatable-bootforms/license)](https://packagist.org/packages/typicms/laravel-translatable-bootforms)
 
-Make [BootForms](https://github.com/adamwathan/bootforms) work flawlessly with [Laravel Translatable](https://github.com/dimsav/laravel-translatable)!
+Make [BootForms](https://github.com/adamwathan/bootforms) work flawlessly with [Laravel Translatable](https://github.com/spatie/laravel-translatable)!
 
 By importing this package, generating translatable forms using BootForms is a breeze.
+
+This package is totally inspired by [Propaganistas/Laravel-Translatable-Bootforms](https://github.com/Propaganistas/Laravel-Translatable-Bootforms).
 
 ### Installation
 
 1. In the `require` key of `composer.json` file add the following
 
     ```json
-    "propaganistas/laravel-translatable-bootforms": "~1.3"
+    "typicms/laravel-translatable-bootforms": "~1.3"
     ```
 
 2. Run the Composer update command
@@ -30,9 +32,8 @@ By importing this package, generating translatable forms using BootForms is a br
     ```php
     'providers' => [
         AdamWathan\BootForms\BootFormsServiceProvider::class,
-        Dimsav\Translatable\TranslatableServiceProvider::class,
         ...
-        Propaganistas\LaravelTranslatableBootForms\TranslatableBootFormsServiceProvider::class,
+        TypiCMS\LaravelTranslatableBootForms\TranslatableBootFormsServiceProvider::class,
     ],
     ```
 4. In your app config, add the Facade to the `$aliases` array
@@ -40,14 +41,14 @@ By importing this package, generating translatable forms using BootForms is a br
     ```php
     'aliases' => [
         ...
-        'TranslatableBootForm' => Propaganistas\LaravelTranslatableBootForms\Facades\TranslatableBootForm::class,
+        'TranslatableBootForm' => TypiCMS\LaravelTranslatableBootForms\Facades\TranslatableBootForm::class,
     ],
     ```
 
 5. Publish the configuration file
 
     ```bash
-    php artisan vendor:publish --provider="Propaganistas\LaravelTranslatableBootForms\TranslatableBootFormsServiceProvider" --tag="config"
+    php artisan vendor:publish --provider="TypiCMS\LaravelTranslatableBootForms\TranslatableBootFormsServiceProvider" --tag="config"
     ```
 
 ### Usage
@@ -66,7 +67,7 @@ Example:
 // Output
 <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" name="name" class="form-control" placeholder="My Placeholder" />
+    <input type="text" name="name" class="form-control" placeholder="My Placeholder">
 </div>
 
 // Controller
@@ -83,12 +84,12 @@ public function postEdit($request)
 
 // Output
 <div class="form-group form-group-translation">
-    <label for="en[name]">Name (en)</label>
-    <input type="text" name="en[name]" class="form-control" placeholder="My Placeholder" data-language="en" />
+    <label for="name[en]">Name (en)</label>
+    <input type="text" name="name[en]" class="form-control" placeholder="My Placeholder" data-language="en">
 </div>
 <div class="form-group form-group-translation">
-    <label for="nl[name]">Name (nl)</label>
-    <input type="text" name="nl[name]" class="form-control" placeholder="My Placeholder" data-language="nl" />
+    <label for="name[nl]">Name (nl)</label>
+    <input type="text" name="name[nl]" class="form-control" placeholder="My Placeholder" data-language="nl">
 </div>
 
 // Controller
@@ -107,12 +108,12 @@ This can be useful for two-way data binding libraries such as Angular.js or Vue.
 
 // Output
 <div class="form-group form-group-translation">
-    <label for="en[title]">Title (en)</label>
-    <input type="text" name="en[title]" class="form-control" some-attribute="Name: en[title]" another-attribute="Locale: en" data-language="en" />
+    <label for="title[en]">Title (en)</label>
+    <input type="text" name="title[en]" class="form-control" some-attribute="Name: title[en]" another-attribute="Locale: en" data-language="en">
 </div>
 <div class="form-group form-group-translation">
-    <label for="nl[title]">Title (nl)</label>
-    <input type="text" name="nl[title]" class="form-control" some-attribute="Name: nl[title]" another-attribute="Locale: nl" data-language="nl" />
+    <label for="title[nl]">Title (nl)</label>
+    <input type="text" name="title[nl]" class="form-control" some-attribute="Name: title[nl]" another-attribute="Locale: nl" data-language="nl">
 </div>
 ```
 
