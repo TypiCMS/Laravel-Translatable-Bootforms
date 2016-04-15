@@ -13,7 +13,7 @@
         "php": ">=5.5.9",
         "illuminate/support": "~5.0",
         "adamwathan/bootforms": "^0.8",
-        "dimsav/laravel-translatable": "~5.0"
+        "spatie/laravel-translatable": "~1.0"
     },
     "require-dev": {
         "orchestra/testbench": "~3.0",
