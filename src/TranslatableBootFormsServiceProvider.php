@@ -1,4 +1,6 @@
-<?php namespace Propaganistas\LaravelTranslatableBootForms;
+<?php
+
+namespace TypiCMS\LaravelTranslatableBootForms;
 
 use Illuminate\Support\ServiceProvider;
 

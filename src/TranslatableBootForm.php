@@ -1,4 +1,6 @@
-<?php namespace Propaganistas\LaravelTranslatableBootForms;
+<?php
+
+namespace TypiCMS\LaravelTranslatableBootForms;
 
 class TranslatableBootForm
 {
@@ -130,7 +132,7 @@ class TranslatableBootForm
      *
      * @param string $method
      * @param array  $parameters
-     * @return \Propaganistas\LaravelTranslatableBootForms\TranslatableBootForm
+     * @return \TypiCMS\LaravelTranslatableBootForms\TranslatableBootForm
      */
     public function __call($method, $parameters)
     {

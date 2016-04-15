@@ -1,4 +1,6 @@
-<?php namespace Propaganistas\LaravelTranslatableBootForms\Tests\Models;
+<?php
+
+namespace TypiCMS\LaravelTranslatableBootForms\Tests\Models;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 

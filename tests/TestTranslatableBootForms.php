@@ -1,12 +1,14 @@
-<?php namespace Propaganistas\LaravelTranslatableBootForms\Tests;
+<?php
+
+namespace TypiCMS\LaravelTranslatableBootForms\Tests;
 
 use AdamWathan\BootForms\BootFormsServiceProvider;
 use AdamWathan\BootForms\Facades\BootForm;
 use Illuminate\Database\Capsule\Manager as DB;
 use Orchestra\Testbench\TestCase;
-use Propaganistas\LaravelTranslatableBootForms\Facades\TranslatableBootForm;
-use Propaganistas\LaravelTranslatableBootForms\Tests\Models\Model;
-use Propaganistas\LaravelTranslatableBootForms\TranslatableBootFormsServiceProvider;
+use TypiCMS\LaravelTranslatableBootForms\Facades\TranslatableBootForm;
+use TypiCMS\LaravelTranslatableBootForms\Tests\Models\Model;
+use TypiCMS\LaravelTranslatableBootForms\TranslatableBootFormsServiceProvider;
 
 class TestTranslatableBootForms extends TestCase
 {
