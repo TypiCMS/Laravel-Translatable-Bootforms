@@ -2,13 +2,13 @@
 
 namespace TypiCMS\LaravelTranslatableBootForms\Tests\Models;
 
-use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model as Eloquent;
+use Spatie\Translatable\HasTranslations;
 
 class Model extends Eloquent
 {
 
-    use Translatable;
+    use HasTranslations;
 
     protected $table = 'models';
 
@@ -16,7 +16,5 @@ class Model extends Eloquent
 
     protected $fillable = ['id', 'default', 'input'];
 
-    public $translationModel = ModelTranslation::class;
-
-    public $translatedAttributes = ['input'];
+    public $translatable = ['input'];
 }
