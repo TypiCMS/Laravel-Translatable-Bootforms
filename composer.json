@@ -13,17 +13,10 @@
             "email": "samuel@typidesign.be"
         }
     ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/TypiCMS/laravel-translatable"
-        }
-    ],
     "require": {
         "php": ">=5.5.9",
         "illuminate/support": "~5.0",
-        "adamwathan/bootforms": "^0.8",
-        "spatie/laravel-translatable": "dev-master"
+        "adamwathan/bootforms": "^0.8"
     },
     "require-dev": {
         "orchestra/testbench": "~3.0",
