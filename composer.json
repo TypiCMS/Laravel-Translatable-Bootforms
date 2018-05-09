@@ -35,5 +35,12 @@
             "TypiCMS\\LaravelTranslatableBootForms\\Tests\\": "tests/"
         }
     },
-    "prefer-stable": true
+    "minimum-stability": "stable",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "TypiCMS\\LaravelTranslatableBootForms\\TranslatableBootFormsServiceProvider"
+            ]
+        }
+    }
 }
