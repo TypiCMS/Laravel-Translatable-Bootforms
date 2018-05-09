@@ -91,7 +91,7 @@ class TestTranslatableBootForms extends TestCase
             $table->text('input');
         });
 
-        Model::create(['default' => 'model', 'input' => '{"en":"translation","nl":"vertaling"}']);
+        Model::create(['default' => 'model', 'input' => ['en' => 'translation', 'nl' => 'vertaling']]);
     }
 
     public function testBootformFormbuilderIsSharedWithTranslatableBootform()
