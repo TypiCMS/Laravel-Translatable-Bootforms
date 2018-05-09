@@ -37,7 +37,7 @@ class TestTranslatableBootForms extends TestCase
     protected function getPackageAliases($app)
     {
         return [
-            'BootForm' => BootForm::class,
+            'BootForm'             => BootForm::class,
             'TranslatableBootForm' => TranslatableBootForm::class,
         ];
     }
