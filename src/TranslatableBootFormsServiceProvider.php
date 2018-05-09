@@ -38,11 +38,11 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider {
 
         // Override BootForm's form builder in order to get model binding
         // between BootForm & TranslatableBootForm working.
-        $this->app->singleton('adamwathan.form', function ($app) {
+        $this->app->singleton('typicms.form', function ($app) {
             $formBuilder = new Form\FormBuilder();
             $formBuilder->setLocales($this->getLocales());
-            $formBuilder->setErrorStore($app['adamwathan.form.errorstore']);
-            $formBuilder->setOldInputProvider($app['adamwathan.form.oldinput']);
+            $formBuilder->setErrorStore($app['typicms.form.errorstore']);
+            $formBuilder->setOldInputProvider($app['typicms.form.oldinput']);
             $formBuilder->setToken($app['session.store']->token());
 
             return $formBuilder;
@@ -65,7 +65,7 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider {
     public function provides()
     {
         return array(
-            'adamwathan.form',
+            'typicms.form',
             'translatable-bootform',
         );
     }

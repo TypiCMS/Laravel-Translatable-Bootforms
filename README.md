@@ -24,7 +24,7 @@ This package is totally inspired by [Propaganistas/Laravel-Translatable-Bootform
 
     ```php
     'providers' => [
-        AdamWathan\BootForms\BootFormsServiceProvider::class,
+        TypiCMS\BootForms\BootFormsServiceProvider::class,
         ...
         TypiCMS\LaravelTranslatableBootForms\TranslatableBootFormsServiceProvider::class,
     ],
@@ -48,7 +48,7 @@ This package is totally inspired by [Propaganistas/Laravel-Translatable-Bootform
 
 Simply use the `TranslatableBootForm` Facade as if it were `BootForm`! That's it. Multiple form inputs will now be generated for the locales set in Translatable's configuration file. They will have the corresponding value for each language and will save all of the translations without any code manipulation.
 
-Please review [BootForms' documentation](https://github.com/adamwathan/bootforms#using-bootforms) if you're unsure how to use it.
+Please review [BootForms' documentation](https://github.com/typicms/bootforms#using-bootforms) if you're unsure how to use it.
 
 Example:
 

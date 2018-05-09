@@ -2,9 +2,9 @@
 
 namespace TypiCMS\LaravelTranslatableBootForms\Form;
 
-use AdamWathan\Form\Binding\BoundData;
-use AdamWathan\Form\Elements\Label;
-use AdamWathan\Form\FormBuilder as _FormBuilder;
+use TypiCMS\Form\Binding\BoundData;
+use TypiCMS\Form\Elements\Label;
+use TypiCMS\Form\FormBuilder as _FormBuilder;
 
 class FormBuilder extends _FormBuilder
 {

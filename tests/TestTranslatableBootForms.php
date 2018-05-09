@@ -2,8 +2,8 @@
 
 namespace TypiCMS\LaravelTranslatableBootForms\Tests;
 
-use AdamWathan\BootForms\BootFormsServiceProvider;
-use AdamWathan\BootForms\Facades\BootForm;
+use TypiCMS\BootForms\BootFormsServiceProvider;
+use TypiCMS\BootForms\Facades\BootForm;
 use Illuminate\Database\Capsule\Manager as DB;
 use Orchestra\Testbench\TestCase;
 use TypiCMS\LaravelTranslatableBootForms\Facades\TranslatableBootForm;

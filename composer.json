@@ -1,6 +1,6 @@
 {
     "name": "typicms/laravel-translatable-bootforms",
-    "description": "Empowers adamwathan/bootforms with spatie/laravel-translatable.",
+    "description": "Empowers typicms/bootforms with spatie/laravel-translatable.",
     "keywords": ["laravel", "bootforms", "translatable", "i18n", "form"],
     "license": "MIT",
     "authors": [
