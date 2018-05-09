@@ -1,6 +1,6 @@
 # Laravel Translatable BootForms
 
-Make [BootForms](https://github.com/adamwathan/bootforms) work flawlessly with [Laravel Translatable](https://github.com/spatie/laravel-translatable)!
+Make [BootForms](https://github.com/TypiCMS/bootforms) work flawlessly with [Laravel Translatable](https://github.com/spatie/laravel-translatable)!
 
 By importing this package, generating translatable forms using BootForms is a breeze.
 
