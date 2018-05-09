@@ -37,7 +37,7 @@ class TestTranslatableBootForms extends TestCase
     protected function getPackageAliases($app)
     {
         return [
-            'BootForm'             => BootForm::class,
+            'BootForm' => BootForm::class,
             'TranslatableBootForm' => TranslatableBootForm::class,
         ];
     }
@@ -324,7 +324,6 @@ class TestTranslatableBootForms extends TestCase
         $this->form->open()->render();
 
         $this->form->bind(Model::find(1));
-        print_r(Model::find(1));
 
         $expected = '<div class="form-group form-group-translation"><label for="input[en]">Input (en)</label><input type="text" name="input[en]" value="translation" id="input[en]" class="form-control" data-language="en"></div><div class="form-group form-group-translation"><label for="input[nl]">Input (nl)</label><input type="text" name="input[nl]" value="vertaling" id="input[nl]" class="form-control" data-language="nl"></div>';
         $result = $this->form->text('Input', 'input')->render();
