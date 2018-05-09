@@ -45,9 +45,9 @@ class FormBuilder extends BaseFormBuilder
             $translation = $this->boundData->data()->getTranslation($name, $lang);
             $value = $translation ?: '';
 
-            return $this->escape($value);
+            return $value;
         }
 
-        return $this->escape($this->boundData->get($name, $default));
+        return $this->boundData->get($name, $default);
     }
 }
