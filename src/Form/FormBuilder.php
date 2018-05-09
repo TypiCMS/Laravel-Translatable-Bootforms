@@ -3,9 +3,9 @@
 namespace TypiCMS\LaravelTranslatableBootForms\Form;
 
 use TypiCMS\Form\Binding\BoundData;
-use TypiCMS\Form\FormBuilder as _FormBuilder;
+use TypiCMS\Form\FormBuilder as BaseFormBuilder;
 
-class FormBuilder extends _FormBuilder
+class FormBuilder extends BaseFormBuilder
 {
     /**
      * Array of locale keys.
