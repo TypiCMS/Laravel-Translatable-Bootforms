@@ -16,8 +16,8 @@
     "require": {
         "php": ">=5.5.9",
         "illuminate/support": "~5.0",
-        "adamwathan/form": "^0.9.0",
-        "adamwathan/bootforms": "dev-master"
+        "typicms/form": "^1.0.0",
+        "typicms/bootforms": "^1.0.0"
     },
     "require-dev": {
         "orchestra/testbench": "~3.0",
