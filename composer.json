@@ -10,18 +10,20 @@
         },
         {
             "name": "Samuel De Backer",
-            "email": "samuel@typidesign.be"
+            "email": "sdebacker@gmail.com"
         }
     ],
     "require": {
-        "php": ">=5.5.9",
-        "illuminate/support": "~5.0",
+        "php": ">=7.0.0",
+        "illuminate/support": "~5.5",
         "typicms/form": "^1.0.0",
-        "typicms/bootforms": "^1.0.0"
+        "typicms/bootforms": "^1.0.0",
+        "spatie/laravel-translatable": "~2.2.0"
     },
     "require-dev": {
-        "orchestra/testbench": "~3.0",
-        "phpunit/phpunit": "~4.1"
+        "orchestra/testbench": "~3.5.0",
+        "phpunit/phpunit": "~6.0",
+        "php-coveralls/php-coveralls": "~2.0.0"
     },
     "autoload": {
         "psr-4": {

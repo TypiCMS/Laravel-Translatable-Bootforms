@@ -244,7 +244,7 @@ class TestTranslatableBootForms extends TestCase
     {
         $this->form->open()->render();
 
-        $expected = '<div class="form-group form-group-translation"><label class="control-label" for="input[en]">Input (en)</label><input type="text" name="input[en]" id="input[en]" class="form-control" data-language="en"></div><div class="form-group form-group-translation"><label class="control-label" for="input[nl]">Input (nl)</label><input type="text" name="input[nl]" id="input[nl]" class="form-control" data-language="nl"></div>';
+        $expected = '<div class="form-group form-group-translation"><label for="input[en]">Input (en)</label><input type="text" name="input[en]" id="input[en]" class="form-control" data-language="en"></div><div class="form-group form-group-translation"><label for="input[nl]">Input (nl)</label><input type="text" name="input[nl]" id="input[nl]" class="form-control" data-language="nl"></div>';
         $result = $this->form->text('Input', 'input')->render();
         $this->assertEquals($expected, $result);
     }
@@ -253,7 +253,7 @@ class TestTranslatableBootForms extends TestCase
     {
         $this->form->open()->render();
 
-        $expected = '<div class="form-group form-group-translation"><label class="control-label newClass" for="input[en]">Input (en)</label><input type="text" name="input[en]" id="input[en]" class="form-control" data-test="ok" required="required" data-language="en"></div><div class="form-group form-group-translation"><label class="control-label newClass" for="input[nl]">Input (nl)</label><input type="text" name="input[nl]" id="input[nl]" class="form-control" data-test="ok" required="required" data-language="nl"></div>';
+        $expected = '<div class="form-group form-group-translation"><label for="input[en]" class="newClass control-label-required">Input (en)</label><input type="text" name="input[en]" id="input[en]" class="form-control" data-test="ok" required="required" data-language="en"></div><div class="form-group form-group-translation"><label for="input[nl]" class="newClass control-label-required">Input (nl)</label><input type="text" name="input[nl]" id="input[nl]" class="form-control" data-test="ok" required="required" data-language="nl"></div>';
         $result = $this->form->text('Input', 'input')->data('test', 'ok')->labelClass('newClass')->required()->render();
         $this->assertEquals($expected, $result);
     }
@@ -262,7 +262,7 @@ class TestTranslatableBootForms extends TestCase
     {
         $this->form->open()->render();
 
-        $expected = '<div class="form-group form-group-translation"><label class="control-label newClass" for="input[en]">Input (en)</label><input type="text" name="input[en]" id="input[en]" class="form-control" required="required" data-all="test" data-language="en"></div><div class="form-group form-group-translation"><label class="control-label newClass" for="input[nl]">Input (nl)</label><input type="text" name="input[nl]" id="input[nl]" class="form-control" data-test="ok" data-all="test" data-language="nl"></div>';
+        $expected = '<div class="form-group form-group-translation"><label for="input[en]" class="newClass control-label-required">Input (en)</label><input type="text" name="input[en]" id="input[en]" class="form-control" required="required" data-all="test" data-language="en"></div><div class="form-group form-group-translation"><label for="input[nl]" class="newClass">Input (nl)</label><input type="text" name="input[nl]" id="input[nl]" class="form-control" data-test="ok" data-all="test" data-language="nl"></div>';
         $result = $this->form->text('Input', 'input')->dataForLocale('nl', 'test', 'ok')->labelClassForLocale(['nl', 'en'], 'newClass')->requiredForLocale('en')->data('all', 'test')->render();
         $this->assertEquals($expected, $result);
     }
@@ -271,7 +271,7 @@ class TestTranslatableBootForms extends TestCase
     {
         $this->form->open()->render();
 
-        $expected = '<div class="form-group form-group-translation"><label class="control-label" for="input[en]">Input (en)</label><input type="text" name="input[en]" id="input[en]" class="form-control" data-language="en"></div><div class="form-group form-group-translation"><label class="control-label" for="input[nl]">Input (nl)</label><input type="text" name="input[nl]" id="input[nl]" class="form-control" data-language="nl"></div>';
+        $expected = '<div class="form-group form-group-translation"><label for="input[en]">Input (en)</label><input type="text" name="input[en]" id="input[en]" class="form-control" data-language="en"></div><div class="form-group form-group-translation"><label for="input[nl]">Input (nl)</label><input type="text" name="input[nl]" id="input[nl]" class="form-control" data-language="nl"></div>';
         $result = (string) $this->form->text('Input', 'input');
         $this->assertEquals($expected, $result);
     }
@@ -280,27 +280,27 @@ class TestTranslatableBootForms extends TestCase
     {
         $this->form->open()->render();
 
-        $expected = '<div class="form-group form-group-translation"><label class="control-label newClass" for="input[en]">Input (en)</label><input type="text" name="input[en]" id="input[en]" class="form-control" data-test="ok" required="required" data-language="en"></div>';
+        $expected = '<div class="form-group form-group-translation"><label for="input[en]" class="newClass control-label-required">Input (en)</label><input type="text" name="input[en]" id="input[en]" class="form-control" data-test="ok" required="required" data-language="en"></div>';
         $result = $this->form->text('Input', 'input')->data('test', 'ok')->labelClass('newClass')->required()->render('en');
         $this->assertEquals($expected, $result);
 
-        $expected = '<div class="form-group form-group-translation"><label class="control-label newClass" for="input[en]">Input (en)</label><input type="text" name="input[en]" id="input[en]" class="form-control" data-test="ok" required="required" data-language="en"></div><div class="form-group form-group-translation"><label class="control-label newClass" for="input[nl]">Input (nl)</label><input type="text" name="input[nl]" id="input[nl]" class="form-control" data-test="ok" required="required" data-language="nl"></div>';
+        $expected = '<div class="form-group form-group-translation"><label for="input[en]" class="newClass control-label-required">Input (en)</label><input type="text" name="input[en]" id="input[en]" class="form-control" data-test="ok" required="required" data-language="en"></div><div class="form-group form-group-translation"><label for="input[nl]" class="newClass control-label-required">Input (nl)</label><input type="text" name="input[nl]" id="input[nl]" class="form-control" data-test="ok" required="required" data-language="nl"></div>';
         $result = $this->form->text('Input', 'input')->data('test', 'ok')->labelClass('newClass')->required()->render('en','nl');
         $this->assertEquals($expected, $result);
 
-        $expected = '<div class="form-group form-group-translation"><label class="control-label newClass" for="input[en]">Input (en)</label><input type="text" name="input[en]" id="input[en]" class="form-control" data-test="ok" required="required" data-language="en"></div>';
+        $expected = '<div class="form-group form-group-translation"><label for="input[en]" class="newClass control-label-required">Input (en)</label><input type="text" name="input[en]" id="input[en]" class="form-control" data-test="ok" required="required" data-language="en"></div>';
         $result = $this->form->text('Input', 'input')->data('test', 'ok')->labelClass('newClass')->required()->render(['en']);
         $this->assertEquals($expected, $result);
 
-        $expected = '<div class="form-group form-group-translation"><label class="control-label newClass" for="input[en]">Input (en)</label><input type="text" name="input[en]" id="input[en]" class="form-control" data-test="ok" required="required" data-language="en"></div><div class="form-group form-group-translation"><label class="control-label newClass" for="input[nl]">Input (nl)</label><input type="text" name="input[nl]" id="input[nl]" class="form-control" data-test="ok" required="required" data-language="nl"></div>';
+        $expected = '<div class="form-group form-group-translation"><label for="input[en]" class="newClass control-label-required">Input (en)</label><input type="text" name="input[en]" id="input[en]" class="form-control" data-test="ok" required="required" data-language="en"></div><div class="form-group form-group-translation"><label for="input[nl]" class="newClass control-label-required">Input (nl)</label><input type="text" name="input[nl]" id="input[nl]" class="form-control" data-test="ok" required="required" data-language="nl"></div>';
         $result = $this->form->text('Input', 'input')->data('test', 'ok')->labelClass('newClass')->required()->render(['en','nl']);
         $this->assertEquals($expected, $result);
 
-        $expected = '<div class="form-group form-group-translation"><label class="control-label newClass" for="input[en]">Input (en)</label><input type="text" name="input[en]" id="input[en]" class="form-control" data-test="ok" required="required" data-language="en"></div>';
+        $expected = '<div class="form-group form-group-translation"><label for="input[en]" class="newClass control-label-required">Input (en)</label><input type="text" name="input[en]" id="input[en]" class="form-control" data-test="ok" required="required" data-language="en"></div>';
         $result = $this->form->text('Input', 'input')->data('test', 'ok')->labelClass('newClass')->required()->renderLocale('en');
         $this->assertEquals($expected, $result);
 
-        $expected = '<div class="form-group form-group-translation"><label class="control-label newClass" for="input[en]">Input (en)</label><input type="text" name="input[en]" id="input[en]" class="form-control" data-test="ok" required="required" data-language="en"></div><div class="form-group form-group-translation"><label class="control-label newClass" for="input[nl]">Input (nl)</label><input type="text" name="input[nl]" id="input[nl]" class="form-control" data-test="ok" required="required" data-language="nl"></div>';
+        $expected = '<div class="form-group form-group-translation"><label for="input[en]" class="newClass control-label-required">Input (en)</label><input type="text" name="input[en]" id="input[en]" class="form-control" data-test="ok" required="required" data-language="en"></div><div class="form-group form-group-translation"><label for="input[nl]" class="newClass control-label-required">Input (nl)</label><input type="text" name="input[nl]" id="input[nl]" class="form-control" data-test="ok" required="required" data-language="nl"></div>';
         $result = $this->form->text('Input', 'input')->data('test', 'ok')->labelClass('newClass')->required()->renderLocale(['en','nl']);
         $this->assertEquals($expected, $result);
     }
@@ -313,7 +313,7 @@ class TestTranslatableBootForms extends TestCase
 
         $this->form->bind(Model::find(1));
 
-        $expected = '<div class="form-group"><label class="control-label" for="default">Input</label><input type="text" name="default" value="model" id="default" class="form-control"></div>';
+        $expected = '<div class="form-group"><label for="default">Input</label><input type="text" name="default" value="model" id="default" class="form-control"></div>';
         $result = $this->bootform->text('Input', 'default')->render();
         $this->assertEquals($expected, $result);
     }
@@ -325,8 +325,9 @@ class TestTranslatableBootForms extends TestCase
         $this->form->open()->render();
 
         $this->form->bind(Model::find(1));
+        print_r(Model::find(1));
 
-        $expected = '<div class="form-group form-group-translation"><label class="control-label" for="input[en]">Input (en)</label><input type="text" name="input[en]" value="translation" id="input[en]" class="form-control" data-language="en"></div><div class="form-group form-group-translation"><label class="control-label" for="input[nl]">Input (nl)</label><input type="text" name="input[nl]" value="vertaling" id="input[nl]" class="form-control" data-language="nl"></div>';
+        $expected = '<div class="form-group form-group-translation"><label for="input[en]">Input (en)</label><input type="text" name="input[en]" value="translation" id="input[en]" class="form-control" data-language="en"></div><div class="form-group form-group-translation"><label for="input[nl]">Input (nl)</label><input type="text" name="input[nl]" value="vertaling" id="input[nl]" class="form-control" data-language="nl"></div>';
         $result = $this->form->text('Input', 'input')->render();
         $this->assertEquals($expected, $result);
     }
