@@ -4,7 +4,6 @@ namespace TypiCMS\LaravelTranslatableBootForms;
 
 class TranslatableBootForm
 {
-
     /**
      * BootForm implementation.
      *
@@ -132,6 +131,7 @@ class TranslatableBootForm
      *
      * @param string $method
      * @param array  $parameters
+     *
      * @return \TypiCMS\LaravelTranslatableBootForms\TranslatableBootForm
      */
     public function __call($method, $parameters)
@@ -183,6 +183,7 @@ class TranslatableBootForm
      * Get or set the available locales.
      *
      * @param array|null $locales
+     *
      * @return array
      */
     public function locales(array $locales = null)
@@ -196,6 +197,7 @@ class TranslatableBootForm
      * Get or set the current element.
      *
      * @param string|null $element
+     *
      * @return string
      */
     protected function element($element = null)
@@ -209,6 +211,7 @@ class TranslatableBootForm
      * Get or set the arguments.
      *
      * @param array|null $arguments
+     *
      * @return array
      */
     protected function arguments(array $arguments = null)
@@ -222,6 +225,7 @@ class TranslatableBootForm
      * Get or set the methods.
      *
      * @param array|null $methods
+     *
      * @return array
      */
     protected function methods(array $methods = null)
@@ -235,6 +239,7 @@ class TranslatableBootForm
      * Get or set the current element.
      *
      * @param bool|null $clone
+     *
      * @return bool
      */
     protected function cloneElement($clone = null)
@@ -248,6 +253,7 @@ class TranslatableBootForm
      * Get or set the translatable indicator boolean.
      *
      * @param bool|null $add
+     *
      * @return bool
      */
     protected function translatableIndicator($add = null)
@@ -314,7 +320,7 @@ class TranslatableBootForm
             foreach ($locales as $locale) {
                 $this->arguments($originalArguments);
                 $this->methods($originalMethods);
-                $this->overwriteArgument('name', $originalArguments['name'] . '[' . $locale . ']');
+                $this->overwriteArgument('name', $originalArguments['name'].'['.$locale.']');
                 if ($this->translatableIndicator()) {
                     $this->setTranslatableLabelIndicator($locale);
                 }
@@ -349,6 +355,7 @@ class TranslatableBootForm
      * Creates an input element using the supplied arguments and methods.
      *
      * @param string|null $currentLocale
+     *
      * @return mixed
      */
     protected function createInput($currentLocale = null)
@@ -380,7 +387,6 @@ class TranslatableBootForm
                 } else {
                     $element->{$methodName}();
                 }
-
             }
         }
 
@@ -390,8 +396,9 @@ class TranslatableBootForm
     /**
      * Replaces %name recursively with the proper input name.
      *
-     * @param mixed $parameter
+     * @param mixed  $parameter
      * @param string $currentLocale
+     *
      * @return mixed
      */
     protected function replacePlaceholdersRecursively($parameter, $currentLocale)
@@ -421,6 +428,7 @@ class TranslatableBootForm
      * Maps the form element arguments to their name.
      *
      * @param array $arguments
+     *
      * @return array
      */
     protected function mapArguments(array $arguments)
@@ -440,5 +448,4 @@ class TranslatableBootForm
         $localizedLabel = str_replace('%label', $this->arguments()['label'], $this->config['label-locale-indicator']);
         $this->overwriteArgument('label', str_replace('%locale', $locale, $localizedLabel));
     }
-
 }

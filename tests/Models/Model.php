@@ -7,7 +7,6 @@ use Spatie\Translatable\HasTranslations;
 
 class Model extends Eloquent
 {
-
     use HasTranslations;
 
     protected $table = 'models';

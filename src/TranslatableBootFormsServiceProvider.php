@@ -4,8 +4,8 @@ namespace TypiCMS\LaravelTranslatableBootForms;
 
 use Illuminate\Support\ServiceProvider;
 
-class TranslatableBootFormsServiceProvider extends ServiceProvider {
-
+class TranslatableBootFormsServiceProvider extends ServiceProvider
+{
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -64,10 +64,10 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider {
      */
     public function provides()
     {
-        return array(
+        return [
             'typicms.form',
             'translatable-bootform',
-        );
+        ];
     }
 
     /**
@@ -79,5 +79,4 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider {
     {
         return config('translatable-bootforms.locales');
     }
-
 }
