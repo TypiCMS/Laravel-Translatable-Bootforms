@@ -3,6 +3,7 @@
 namespace TypiCMS\LaravelTranslatableBootForms;
 
 use Illuminate\Support\ServiceProvider;
+use TypiCMS\LaravelTranslatableBootForms\Form\FormBuilder;
 
 class TranslatableBootFormsServiceProvider extends ServiceProvider
 {
@@ -39,7 +40,7 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider
         // Override BootForm's form builder in order to get model binding
         // between BootForm & TranslatableBootForm working.
         $this->app->singleton('typicms.form', function ($app) {
-            $formBuilder = new Form\FormBuilder();
+            $formBuilder = new FormBuilder();
             $formBuilder->setLocales($this->getLocales());
             $formBuilder->setErrorStore($app['typicms.form.errorstore']);
             $formBuilder->setOldInputProvider($app['typicms.form.oldinput']);
