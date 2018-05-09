@@ -8,32 +8,19 @@ Make [BootForms](https://github.com/TypiCMS/bootforms) work flawlessly with [Lar
 
 By importing this package, generating translatable forms using BootForms is a breeze.
 
-This package is totally inspired by [Propaganistas/Laravel-Translatable-Bootforms](https://github.com/Propaganistas/Laravel-Translatable-Bootforms).
+This package is adapted from [Propaganistas/Laravel-Translatable-Bootforms](https://github.com/Propaganistas/Laravel-Translatable-Bootforms).
 
 ### Installation
 
-1. In the `require` key of `composer.json` file add the following
+1. Run the Composer require command to install the package
 
-    ```json
-    "typicms/laravel-translatable-bootforms": "~1.3"
+    ```
+    composer require typicms/laravel-translatable-bootforms
     ```
 
-2. Run the Composer update command
+The package will be autodiscovered by Laravel.
 
-    ```bash
-    composer update
-    ```
-
-3. In your app config, add the Service Provider in the `$providers` array **after** `BootFormsServiceProvider` and `TranslatableServiceProvider`
-
-    ```php
-    'providers' => [
-        TypiCMS\BootForms\BootFormsServiceProvider::class,
-        ...
-        TypiCMS\LaravelTranslatableBootForms\TranslatableBootFormsServiceProvider::class,
-    ],
-    ```
-4. In your app config, add the Facade to the `$aliases` array
+2. In your app config, add the Facade to the `$aliases` array
 
     ```php
     'aliases' => [
@@ -42,7 +29,7 @@ This package is totally inspired by [Propaganistas/Laravel-Translatable-Bootform
     ],
     ```
 
-5. Publish the configuration file
+3. Publish the configuration file
 
     ```bash
     php artisan vendor:publish --provider="TypiCMS\LaravelTranslatableBootForms\TranslatableBootFormsServiceProvider" --tag="config"
@@ -50,9 +37,9 @@ This package is totally inspired by [Propaganistas/Laravel-Translatable-Bootform
 
 ### Usage
 
-Simply use the `TranslatableBootForm` Facade as if it were `BootForm`! That's it. Multiple form inputs will now be generated for the locales set in Translatable's configuration file. They will have the corresponding value for each language and will save all of the translations without any code manipulation.
+Simply use the `TranslatableBootForm` Facade as if it were `BootForm`! That’s it. Multiple form inputs will now be generated for the locales set in Translatable’s configuration file. They will have the corresponding value for each language and will save all of the translations without any code manipulation.
 
-Please review [BootForms' documentation](https://github.com/typicms/bootforms#using-bootforms) if you're unsure how to use it.
+Please review [BootForms’ documentation](https://github.com/typicms/bootforms#using-bootforms) if you’re unsure how to use it.
 
 Example:
 
@@ -116,14 +103,14 @@ This can be useful for two-way data binding libraries such as Angular.js or Vue.
 
 To render a *form element only for some chosen locales*, explicitly call `renderLocale()` as the final method and pass the locale or an array of locales as the first parameter:
 ```php
-TranslatableBootForm::text('Name','name')
+TranslatableBootForm::text('Name', 'name')
                     ->renderLocale('en')
 ```
 
 If you need to apply a *method only for certain locales*, suffix the method with `ForLocale` and pass the locale or an array of locales as the first parameter:
 
 ```php
-TranslatableBootForm::text('Name','name')
+TranslatableBootForm::text('Name', 'name')
                     ->dataForLocale('en', 'attributeName', 'attributeValue')
                     ->addClassForLocale(['en', 'nl'], 'addedClass')
 ```
