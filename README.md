@@ -1,12 +1,5 @@
 # Laravel Translatable BootForms
 
-[![Build Status](https://travis-ci.org/TypiCMS/Laravel-Translatable-Bootforms.svg?branch=master)](https://travis-ci.org/TypiCMS/Laravel-Translatable-Bootforms)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/TypiCMS/Laravel-Translatable-BootForms/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/TypiCMS/Laravel-Translatable-BootForms/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/TypiCMS/Laravel-Translatable-Bootforms/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/TypiCMS/Laravel-Translatable-Bootforms/?branch=master)
-[![Latest Stable Version](https://poser.pugx.org/typicms/laravel-translatable-bootforms/v/stable)](https://packagist.org/packages/typicms/laravel-translatable-bootforms)
-[![Total Downloads](https://poser.pugx.org/typicms/laravel-translatable-bootforms/downloads)](https://packagist.org/packages/typicms/laravel-translatable-bootforms)
-[![License](https://poser.pugx.org/typicms/laravel-translatable-bootforms/license)](https://packagist.org/packages/typicms/laravel-translatable-bootforms)
-
 Make [BootForms](https://github.com/adamwathan/bootforms) work flawlessly with [Laravel Translatable](https://github.com/spatie/laravel-translatable)!
 
 By importing this package, generating translatable forms using BootForms is a breeze.
