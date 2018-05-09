@@ -12,13 +12,11 @@ This package is adapted from [Propaganistas/Laravel-Translatable-Bootforms](http
 
 ### Installation
 
-1. Run the Composer require command to install the package
+1. Run the Composer require command to install the package, the service provider will be autodiscovered by Laravel.
 
     ```
     composer require typicms/laravel-translatable-bootforms
     ```
-
-The package will be autodiscovered by Laravel.
 
 2. In your app config, add the Facade to the `$aliases` array
 
