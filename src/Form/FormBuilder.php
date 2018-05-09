@@ -31,7 +31,6 @@ class FormBuilder extends BaseFormBuilder
 
     /**
      * Getting value from Model or ModelTranslation to populate form.
-     * Courtesy of TypiCMS/TranslatableBootForms (https://github.com/TypiCMS/TranslatableBootForms/blob/master/src/TranslatableFormBuilder.php).
      *
      * @param string $name key
      *
