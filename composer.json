@@ -18,7 +18,7 @@
         "illuminate/support": "~5.5",
         "typicms/form": "^1.0.0",
         "typicms/bootforms": "^1.0.0",
-        "spatie/laravel-translatable": "~2.2.0"
+        "spatie/laravel-translatable": "~3.0"
     },
     "require-dev": {
         "orchestra/testbench": "~3.5.0",
