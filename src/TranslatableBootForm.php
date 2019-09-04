@@ -2,6 +2,8 @@
 
 namespace TypiCMS\LaravelTranslatableBootForms;
 
+use Illuminate\Support\Str;
+
 class TranslatableBootForm
 {
     /**
@@ -371,7 +373,7 @@ class TranslatableBootForm
                 $methodParameters = $method['parameters'];
 
                 // Check if method is locale-specific.
-                if (ends_with($methodName, 'ForLocale')) {
+                if (Str::endsWith($methodName, 'ForLocale')) {
                     $methodName = strstr($methodName, 'ForLocale', true);
                     $locales = array_shift($methodParameters);
                     $locales = is_array($locales) ? $locales : [$locales];
