@@ -16,8 +16,6 @@ class FormBuilder extends BaseFormBuilder
 
     /**
      * Sets the available locales for translatable fields.
-     *
-     * @param array $locales
      */
     public function setLocales(array $locales)
     {

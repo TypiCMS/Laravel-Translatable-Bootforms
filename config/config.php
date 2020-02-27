@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Locales
@@ -70,5 +69,4 @@ return [
     */
 
     'input-locale-attribute' => 'data-language',
-
 ];

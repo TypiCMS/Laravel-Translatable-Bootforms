@@ -68,26 +68,26 @@ class TranslatableBootForm
      * @var array
      */
     private $mappableArguments = [
-        'text'           => ['label', 'name', 'value'],
-        'textarea'       => ['label', 'name'],
-        'password'       => ['label', 'name'],
-        'date'           => ['label', 'name', 'value'],
-        'email'          => ['label', 'name', 'value'],
-        'file'           => ['label', 'name', 'value'],
-        'inputGroup'     => ['label', 'name', 'value'],
-        'radio'          => ['label', 'name', 'value'],
-        'inlineRadio'    => ['label', 'name', 'value'],
-        'checkbox'       => ['label', 'name'],
+        'text' => ['label', 'name', 'value'],
+        'textarea' => ['label', 'name'],
+        'password' => ['label', 'name'],
+        'date' => ['label', 'name', 'value'],
+        'email' => ['label', 'name', 'value'],
+        'file' => ['label', 'name', 'value'],
+        'inputGroup' => ['label', 'name', 'value'],
+        'radio' => ['label', 'name', 'value'],
+        'inlineRadio' => ['label', 'name', 'value'],
+        'checkbox' => ['label', 'name'],
         'inlineCheckbox' => ['label', 'name'],
-        'select'         => ['label', 'name', 'options'],
-        'button'         => ['label', 'name', 'type'],
-        'submit'         => ['value', 'type'],
-        'hidden'         => ['name'],
-        'label'          => ['label'],
-        'open'           => [],
+        'select' => ['label', 'name', 'options'],
+        'button' => ['label', 'name', 'type'],
+        'submit' => ['value', 'type'],
+        'hidden' => ['name'],
+        'label' => ['label'],
+        'open' => [],
         'openHorizontal' => ['columnSizes'],
-        'bind'           => ['model'],
-        'close'          => [],
+        'bind' => ['model'],
+        'close' => [],
     ];
 
     /**
@@ -96,25 +96,25 @@ class TranslatableBootForm
      * @var array
      */
     private $elementBehaviors = [
-        'text'           => ['cloneElement', 'translatableIndicator'],
-        'textarea'       => ['cloneElement', 'translatableIndicator'],
-        'password'       => ['cloneElement', 'translatableIndicator'],
-        'date'           => ['cloneElement', 'translatableIndicator'],
-        'email'          => ['cloneElement', 'translatableIndicator'],
-        'file'           => ['cloneElement', 'translatableIndicator'],
-        'inputGroup'     => ['cloneElement', 'translatableIndicator'],
-        'radio'          => ['cloneElement', 'translatableIndicator'],
-        'inlineRadio'    => ['cloneElement', 'translatableIndicator'],
-        'checkbox'       => ['cloneElement', 'translatableIndicator'],
+        'text' => ['cloneElement', 'translatableIndicator'],
+        'textarea' => ['cloneElement', 'translatableIndicator'],
+        'password' => ['cloneElement', 'translatableIndicator'],
+        'date' => ['cloneElement', 'translatableIndicator'],
+        'email' => ['cloneElement', 'translatableIndicator'],
+        'file' => ['cloneElement', 'translatableIndicator'],
+        'inputGroup' => ['cloneElement', 'translatableIndicator'],
+        'radio' => ['cloneElement', 'translatableIndicator'],
+        'inlineRadio' => ['cloneElement', 'translatableIndicator'],
+        'checkbox' => ['cloneElement', 'translatableIndicator'],
         'inlineCheckbox' => ['cloneElement', 'translatableIndicator'],
-        'select'         => ['cloneElement', 'translatableIndicator'],
-        'button'         => ['cloneElement'],
-        'submit'         => ['cloneElement'],
-        'hidden'         => ['cloneElement'],
-        'label'          => [],
-        'open'           => [],
+        'select' => ['cloneElement', 'translatableIndicator'],
+        'button' => ['cloneElement'],
+        'submit' => ['cloneElement'],
+        'hidden' => ['cloneElement'],
+        'label' => [],
+        'open' => [],
         'openHorizontal' => [],
-        'close'          => [],
+        'close' => [],
     ];
 
     /**
@@ -184,8 +184,6 @@ class TranslatableBootForm
     /**
      * Get or set the available locales.
      *
-     * @param array|null $locales
-     *
      * @return array
      */
     public function locales(array $locales = null)
@@ -212,8 +210,6 @@ class TranslatableBootForm
     /**
      * Get or set the arguments.
      *
-     * @param array|null $arguments
-     *
      * @return array
      */
     protected function arguments(array $arguments = null)
@@ -225,8 +221,6 @@ class TranslatableBootForm
 
     /**
      * Get or set the methods.
-     *
-     * @param array|null $methods
      *
      * @return array
      */
@@ -428,8 +422,6 @@ class TranslatableBootForm
 
     /**
      * Maps the form element arguments to their name.
-     *
-     * @param array $arguments
      *
      * @return array
      */

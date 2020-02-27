@@ -37,7 +37,7 @@ class TestTranslatableBootForms extends TestCase
     protected function getPackageAliases($app)
     {
         return [
-            'BootForm'             => BootForm::class,
+            'BootForm' => BootForm::class,
             'TranslatableBootForm' => TranslatableBootForm::class,
         ];
     }
@@ -67,11 +67,11 @@ class TestTranslatableBootForms extends TestCase
     {
         $db = new DB();
         $db->addConnection([
-            'driver'    => 'sqlite',
-            'database'  => ':memory:',
-            'charset'   => 'utf8',
+            'driver' => 'sqlite',
+            'database' => ':memory:',
+            'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
-            'prefix'    => '',
+            'prefix' => '',
         ]);
         $db->bootEloquent();
         $db->setAsGlobal();
