@@ -29,10 +29,7 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(
-            __DIR__.'/../config/config.php',
-            'translatable-bootforms'
-        );
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'translatable-bootforms');
 
         // Override BootForm's form builder in order to get model binding
         // between BootForm & TranslatableBootForm working.
