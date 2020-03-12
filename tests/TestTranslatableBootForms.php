@@ -44,8 +44,6 @@ class TestTranslatableBootForms extends TestCase
 
     /**
      * Setup the test environment.
-     *
-     * @return void
      */
     public function setUp()
     {
@@ -60,8 +58,6 @@ class TestTranslatableBootForms extends TestCase
 
     /**
      * Setup the test database.
-     *
-     * @return void
      */
     protected function configureDatabase()
     {
@@ -80,8 +76,6 @@ class TestTranslatableBootForms extends TestCase
 
     /**
      * Setup the test table.
-     *
-     * @return void
      */
     protected function migrateTable()
     {
