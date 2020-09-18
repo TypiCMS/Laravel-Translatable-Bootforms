@@ -368,7 +368,7 @@ class TranslatableBootForm
 
                 // Check if method is locale-specific.
                 if (Str::endsWith($methodName, 'ForLocale')) {
-                    $methodName = strstr($methodName, 'ForLocale', true);
+                    $methodName = mb_strstr($methodName, 'ForLocale', true);
                     $locales = array_shift($methodParameters);
                     $locales = is_array($locales) ? $locales : [$locales];
                     if (!is_null($currentLocale) && !in_array($currentLocale, $locales)) {

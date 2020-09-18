@@ -30,7 +30,8 @@ class FormBuilder extends BaseFormBuilder
     /**
      * Getting value from Model or ModelTranslation to populate form.
      *
-     * @param string $name key
+     * @param string $name    key
+     * @param mixed  $default
      *
      * @return string value
      */
