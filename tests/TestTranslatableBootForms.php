@@ -52,7 +52,7 @@ class TestTranslatableBootForms extends TestCase
         $this->app['config']->set('translatable-bootforms.locales', ['en', 'nl']);
         $this->app['config']->set('translatable-bootforms.label-locale-indicator', '%label (%locale)');
 
-        $this->bootform = $this->app->make('bootform');
+        $this->bootform = $this->app->make('typicms.bootform');
         $this->form = $this->app->make('translatable-bootform');
     }
 
