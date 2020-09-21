@@ -2,18 +2,12 @@
 
 namespace TypiCMS\LaravelTranslatableBootForms;
 
+use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 use TypiCMS\LaravelTranslatableBootForms\Form\FormBuilder;
 
-class TranslatableBootFormsServiceProvider extends ServiceProvider
+class TranslatableBootFormsServiceProvider extends ServiceProvider implements DeferrableProvider
 {
-    /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = true;
-
     /**
      * Boot the application events.
      */
@@ -35,7 +29,7 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider
         // between BootForm & TranslatableBootForm working.
         $this->app->singleton('typicms.form', function ($app) {
             $formBuilder = new FormBuilder();
-            $formBuilder->setLocales($this->getLocales());
+            $formBuilder->setLocales(config('translatable-bootforms.locales'));
             $formBuilder->setErrorStore($app['typicms.form.errorstore']);
             $formBuilder->setOldInputProvider($app['typicms.form.oldinput']);
             $formBuilder->setToken($app['session.store']->token());
@@ -46,7 +40,7 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider
         // Define TranslatableBootForm.
         $this->app->singleton('translatable-bootform', function ($app) {
             $form = new TranslatableBootForm($app['bootform']);
-            $form->locales($this->getLocales());
+            $form->locales(config('translatable-bootforms.locales'));
 
             return $form;
         });
@@ -63,15 +57,5 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider
             'typicms.form',
             'translatable-bootform',
         ];
-    }
-
-    /**
-     * Get locales.
-     *
-     * @return array
-     */
-    protected function getLocales()
-    {
-        return config('translatable-bootforms.locales');
     }
 }
