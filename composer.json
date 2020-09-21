@@ -22,7 +22,7 @@
     },
     "require-dev": {
         "orchestra/testbench": "~3.8.0",
-        "phpunit/phpunit": "~6.0",
+        "phpunit/phpunit": "~8.0",
         "php-coveralls/php-coveralls": "~2.0.0"
     },
     "autoload": {
