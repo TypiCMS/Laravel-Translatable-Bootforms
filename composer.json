@@ -21,7 +21,7 @@
         "spatie/laravel-translatable": ">=2.2"
     },
     "require-dev": {
-        "orchestra/testbench": "~3.5.0",
+        "orchestra/testbench": "~3.8.0",
         "phpunit/phpunit": "~6.0",
         "php-coveralls/php-coveralls": "~2.0.0"
     },
