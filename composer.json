@@ -14,11 +14,11 @@
         }
     ],
     "require": {
-        "php": ">=7.0.0",
-        "illuminate/support": "~5.8|~6.0|~7.0|~8.0",
+        "php": ">=7.2.0",
+        "illuminate/support": ">=5.8",
         "typicms/form": "^2.0.0",
         "typicms/bootforms": "^2.0.0",
-        "spatie/laravel-translatable": "~2.2|~3.0|~4.0"
+        "spatie/laravel-translatable": ">=2.2"
     },
     "require-dev": {
         "orchestra/testbench": "~3.5.0",
