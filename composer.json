@@ -17,7 +17,7 @@
         "php": ">=7.2.0",
         "illuminate/support": ">=5.8",
         "typicms/form": "^2.0.0",
-        "typicms/bootforms": "dev-bootstrap-5",
+        "typicms/bootforms": "^3.0.0",
         "spatie/laravel-translatable": ">=2.2"
     },
     "require-dev": {
