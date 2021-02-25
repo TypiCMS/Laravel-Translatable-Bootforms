@@ -40,7 +40,11 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider implements De
         // Define TranslatableBootForm.
         $this->app->singleton('translatable-bootform', function ($app) {
             $form = new TranslatableBootForm($app['typicms.bootform']);
-            $form->locales(config('translatable-bootforms.locales'));
+            $locales = array_keys(config('typicms.locales', []));
+            if (empty($locales)) {
+                $locales = config('translatable-bootforms.locales');
+            }
+            $form->locales($locales);
 
             return $form;
         });
