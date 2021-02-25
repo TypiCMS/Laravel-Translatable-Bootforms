@@ -28,8 +28,12 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider implements De
         // Override BootForm's form builder in order to get model binding
         // between BootForm & TranslatableBootForm working.
         $this->app->singleton('typicms.form', function ($app) {
+            $locales = array_keys(config('typicms.locales', []));
+            if (empty($locales)) {
+                $locales = config('translatable-bootforms.locales');
+            }
             $formBuilder = new FormBuilder();
-            $formBuilder->setLocales(config('translatable-bootforms.locales'));
+            $formBuilder->setLocales($locales);
             $formBuilder->setErrorStore($app['typicms.form.errorstore']);
             $formBuilder->setOldInputProvider($app['typicms.form.oldinput']);
             $formBuilder->setToken($app['session.store']->token());
