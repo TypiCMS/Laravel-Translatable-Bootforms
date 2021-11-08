@@ -134,7 +134,7 @@ class TranslatableBootForm
      * @param string $method
      * @param array  $parameters
      *
-     * @return \TypiCMS\LaravelTranslatableBootForms\TranslatableBootForm
+     * @return \TypiCMS\LaravelTranslatableBootForms\TranslatableBootForm|string
      */
     public function __call($method, $parameters)
     {
