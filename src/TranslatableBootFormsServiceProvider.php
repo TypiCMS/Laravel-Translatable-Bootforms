@@ -11,7 +11,7 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider implements De
     /**
      * Boot the application events.
      */
-    public function boot()
+    public function boot(): void
     {
         $this->publishes([
             __DIR__.'/../config/config.php' => config_path('translatable-bootforms.php'),
@@ -21,7 +21,7 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider implements De
     /**
      * Register the service provider.
      */
-    public function register()
+    public function register(): void
     {
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'translatable-bootforms');
 
