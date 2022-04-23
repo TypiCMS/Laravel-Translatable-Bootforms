@@ -119,10 +119,8 @@ class TranslatableBootForm
 
     /**
      * Form constructor.
-     *
-     * @param object $form
      */
-    public function __construct($form)
+    public function __construct(object $form)
     {
         $this->form = $form;
         $this->config = config('translatable-bootforms');
@@ -130,16 +128,11 @@ class TranslatableBootForm
 
     /**
      * Magic __call method.
-     *
-     * @param string $method
-     * @param array  $parameters
-     *
-     * @return \TypiCMS\LaravelTranslatableBootForms\TranslatableBootForm|string
      */
-    public function __call($method, $parameters)
+    public function __call(string $method, array $parameters): string|TranslatableBootForm
     {
         // New translatable form element.
-        if (is_null($this->element())) {
+        if (empty($this->element())) {
             $this->element($method);
             $this->arguments($this->mapArguments($parameters));
         } // Calling methods on the translatable form element.
@@ -157,22 +150,18 @@ class TranslatableBootForm
 
     /**
      * Magic __toString method.
-     *
-     * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->render();
     }
 
     /**
      * Resets the properties.
-     *
-     * @return $this
      */
-    protected function reset()
+    protected function reset(): self
     {
-        $this->element = null;
+        $this->element = '';
         $this->arguments = [];
         $this->methods = [];
         $this->cloneElement = false;
@@ -183,10 +172,8 @@ class TranslatableBootForm
 
     /**
      * Get or set the available locales.
-     *
-     * @return array
      */
-    public function locales(array $locales = null)
+    public function locales(array $locales = null): array
     {
         return is_null($locales)
             ? $this->locales
@@ -195,12 +182,8 @@ class TranslatableBootForm
 
     /**
      * Get or set the current element.
-     *
-     * @param string|null $element
-     *
-     * @return string
      */
-    protected function element($element = null)
+    protected function element(?string $element = null): string
     {
         return is_null($element)
             ? $this->element
@@ -209,10 +192,8 @@ class TranslatableBootForm
 
     /**
      * Get or set the arguments.
-     *
-     * @return array
      */
-    protected function arguments(array $arguments = null)
+    protected function arguments(array $arguments = null): array
     {
         return is_null($arguments)
             ? $this->arguments
@@ -221,10 +202,8 @@ class TranslatableBootForm
 
     /**
      * Get or set the methods.
-     *
-     * @return array
      */
-    protected function methods(array $methods = null)
+    protected function methods(array $methods = null): array
     {
         return is_null($methods)
             ? $this->methods
@@ -233,12 +212,8 @@ class TranslatableBootForm
 
     /**
      * Get or set the current element.
-     *
-     * @param bool|null $clone
-     *
-     * @return bool
      */
-    protected function cloneElement($clone = null)
+    protected function cloneElement(?bool $clone = null): bool
     {
         return is_null($clone)
             ? $this->cloneElement
@@ -247,12 +222,8 @@ class TranslatableBootForm
 
     /**
      * Get or set the translatable indicator boolean.
-     *
-     * @param bool|null $add
-     *
-     * @return bool
      */
-    protected function translatableIndicator($add = null)
+    protected function translatableIndicator(?bool $add = null): bool
     {
         return is_null($add)
             ? $this->translatableIndicator
@@ -261,11 +232,8 @@ class TranslatableBootForm
 
     /**
      * Overwrites an argument.
-     *
-     * @param string       $argument
-     * @param string|array $value
      */
-    protected function overwriteArgument($argument, $value)
+    protected function overwriteArgument(string $argument, array|string $value): void
     {
         $arguments = $this->arguments();
 
@@ -276,11 +244,8 @@ class TranslatableBootForm
 
     /**
      * Adds a method.
-     *
-     * @param string       $name
-     * @param string|array $parameters
      */
-    protected function addMethod($name, $parameters)
+    protected function addMethod(string $name, array|string $parameters): void
     {
         $methods = $this->methods();
 
@@ -293,10 +258,8 @@ class TranslatableBootForm
 
     /**
      * Renders the current translatable form element.
-     *
-     * @return string
      */
-    public function render()
+    public function render(): string
     {
         $this->applyElementBehavior();
 
@@ -339,10 +302,8 @@ class TranslatableBootForm
 
     /**
      * Shortcut method for locale-specific rendering.
-     *
-     * @return string
      */
-    public function renderLocale()
+    public function renderLocale(): string
     {
         return call_user_func_array([$this, 'render'], func_get_args());
     }
@@ -350,11 +311,9 @@ class TranslatableBootForm
     /**
      * Creates an input element using the supplied arguments and methods.
      *
-     * @param string|null $currentLocale
-     *
      * @return mixed
      */
-    protected function createInput($currentLocale = null)
+    protected function createInput(?string $currentLocale = null)
     {
         // Create element using arguments.
         $element = call_user_func_array([$this->form, $this->element()], array_values($this->arguments()));
@@ -392,12 +351,11 @@ class TranslatableBootForm
     /**
      * Replaces %name recursively with the proper input name.
      *
-     * @param mixed  $parameter
-     * @param string $currentLocale
+     * @param mixed $parameter
      *
      * @return mixed
      */
-    protected function replacePlaceholdersRecursively($parameter, $currentLocale)
+    protected function replacePlaceholdersRecursively($parameter, string $currentLocale)
     {
         if (is_array($parameter)) {
             foreach ($parameter as $param) {
@@ -411,7 +369,7 @@ class TranslatableBootForm
     /**
      * Add specific element behavior to the current translatable form element.
      */
-    protected function applyElementBehavior()
+    protected function applyElementBehavior(): void
     {
         $behaviors = isset($this->elementBehaviors[$this->element()]) ? $this->elementBehaviors[$this->element()] : [];
 
@@ -422,10 +380,8 @@ class TranslatableBootForm
 
     /**
      * Maps the form element arguments to their name.
-     *
-     * @return array
      */
-    protected function mapArguments(array $arguments)
+    protected function mapArguments(array $arguments): array
     {
         $keys = isset($this->mappableArguments[$this->element()]) ? $this->mappableArguments[$this->element()] : [];
 
@@ -434,10 +390,8 @@ class TranslatableBootForm
 
     /**
      * Add a locale indicator to the label.
-     *
-     * @param string $locale
      */
-    protected function setTranslatableLabelIndicator($locale)
+    protected function setTranslatableLabelIndicator(string $locale): void
     {
         $localizedLabel = str_replace('%label', $this->arguments()['label'], $this->config['label-locale-indicator']);
         $this->overwriteArgument('label', str_replace('%locale', $locale, $localizedLabel));

@@ -12,17 +12,17 @@ class FormBuilder extends BaseFormBuilder
      *
      * @var array
      */
-    protected $locales;
+    protected $locales = [];
 
     /**
      * Sets the available locales for translatable fields.
      */
-    public function setLocales(array $locales)
+    public function setLocales(array $locales): void
     {
         $this->locales = $locales;
     }
 
-    public function bind($data)
+    public function bind($data): void
     {
         $this->boundData = new BoundData($data);
     }
