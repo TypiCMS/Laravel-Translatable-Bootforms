@@ -15,7 +15,7 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider implements De
     {
         $this->publishes([
             __DIR__.'/../config/config.php' => config_path('translatable-bootforms.php'),
-        ], 'config');
+        ], 'typicms-config');
     }
 
     /**
