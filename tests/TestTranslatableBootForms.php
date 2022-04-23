@@ -84,7 +84,7 @@ class TestTranslatableBootForms extends TestCase
     protected function migrateTable()
     {
         DB::schema()->create('models', function ($table) {
-            $table->increments('id');
+            $table->id();
             $table->string('default');
             $table->text('input');
         });
