@@ -32,7 +32,7 @@ class TranslatableBootForm
      *
      * @var string
      */
-    protected $element;
+    protected $element = '';
 
     /**
      * The array of arguments to pass in when creating the element.
