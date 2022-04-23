@@ -1,7 +1,13 @@
 {
     "name": "typicms/laravel-translatable-bootforms",
     "description": "Empowers typicms/bootforms with spatie/laravel-translatable.",
-    "keywords": ["laravel", "bootforms", "translatable", "i18n", "form"],
+    "keywords": [
+        "laravel",
+        "bootforms",
+        "translatable",
+        "i18n",
+        "form"
+    ],
     "license": "MIT",
     "authors": [
         {
@@ -14,16 +20,17 @@
         }
     ],
     "require": {
-        "php": ">=7.2.0",
-        "illuminate/support": ">=5.8",
+        "php": "^8.0.2",
+        "illuminate/support": ">=9.2",
         "typicms/form": "^2.0.0",
         "typicms/bootforms": "^3.0.0",
-        "spatie/laravel-translatable": ">=2.2"
+        "spatie/laravel-translatable": "^6.0"
     },
     "require-dev": {
-        "orchestra/testbench": "~3.8.0",
-        "phpunit/phpunit": "~8.0",
-        "php-coveralls/php-coveralls": "~2.0.0"
+        "orchestra/testbench": "~7.4.0",
+        "phpunit/phpunit": "^9.5.10",
+        "php-coveralls/php-coveralls": "~2.5.2",
+        "nunomaduro/larastan": "^2.0"
     },
     "autoload": {
         "psr-4": {
