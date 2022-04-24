@@ -22,20 +22,15 @@ class FormBuilder extends BaseFormBuilder
         $this->locales = $locales;
     }
 
-    public function bind($data): void
+    public function bind(mixed $data): void
     {
         $this->boundData = new BoundData($data);
     }
 
     /**
      * Getting value from Model or ModelTranslation to populate form.
-     *
-     * @param string $name    key
-     * @param mixed  $default
-     *
-     * @return string value
      */
-    protected function getBoundValue($name, $default)
+    protected function getBoundValue(string $name, ?string $default): mixed
     {
         $inputName = preg_split('/[\[\]]+/', $name, -1, PREG_SPLIT_NO_EMPTY);
         if (count($inputName) == 2 && in_array($inputName[1], $this->locales)) {
