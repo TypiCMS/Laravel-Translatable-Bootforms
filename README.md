@@ -1,6 +1,5 @@
 # Laravel Translatable BootForms
 
-[![Build Status](https://travis-ci.org/TypiCMS/Laravel-Translatable-Bootforms.svg?branch=master)](https://travis-ci.org/TypiCMS/Laravel-Translatable-Bootforms)
 [![Coverage Status](https://coveralls.io/repos/github/TypiCMS/Laravel-Translatable-Bootforms/badge.svg?branch=master)](https://coveralls.io/github/TypiCMS/Laravel-Translatable-Bootforms?branch=master)
 [![StyleCI](https://styleci.io/repos/56333065/shield?branch=master)](https://styleci.io/repos/56333065)
 
@@ -14,24 +13,24 @@ This package is adapted from [Propaganistas/Laravel-Translatable-Bootforms](http
 
 1. Run the Composer require command to install the package, the service provider will be autodiscovered by Laravel.
 
-    ```
-    composer require typicms/laravel-translatable-bootforms
-    ```
+   ```
+   composer require typicms/laravel-translatable-bootforms
+   ```
 
 2. In your app config, add the Facade to the `$aliases` array
 
-    ```php
-    'aliases' => [
-        ...
-        'TranslatableBootForm' => TypiCMS\LaravelTranslatableBootForms\Facades\TranslatableBootForm::class,
-    ],
-    ```
+   ```php
+   'aliases' => [
+       ...
+       'TranslatableBootForm' => TypiCMS\LaravelTranslatableBootForms\Facades\TranslatableBootForm::class,
+   ],
+   ```
 
 3. Publish the configuration file
 
-    ```bash
-    php artisan vendor:publish --provider="TypiCMS\LaravelTranslatableBootForms\TranslatableBootFormsServiceProvider" --tag="config"
-    ```
+   ```bash
+   php artisan vendor:publish --provider="TypiCMS\LaravelTranslatableBootForms\TranslatableBootFormsServiceProvider" --tag="config"
+   ```
 
 ### Usage
 
@@ -83,6 +82,7 @@ public function postEdit($request)
 
 You can use the `%name` and `%locale` placeholders while specifying parameters. The placeholder will be replaced with the corresponding input name or locale.
 This can be useful for two-way data binding libraries such as Angular.js or Vue.js. E.g.
+
 ```php
 {!! TranslatableBootForm::text('Title', 'title')
                         ->attribute('some-attribute', 'Name: %name')
@@ -99,13 +99,14 @@ This can be useful for two-way data binding libraries such as Angular.js or Vue.
 </div>
 ```
 
-To render a *form element only for some chosen locales*, explicitly call `renderLocale()` as the final method and pass the locale or an array of locales as the first parameter:
+To render a _form element only for some chosen locales_, explicitly call `renderLocale()` as the final method and pass the locale or an array of locales as the first parameter:
+
 ```php
 TranslatableBootForm::text('Name', 'name')
                     ->renderLocale('en')
 ```
 
-If you need to apply a *method only for certain locales*, suffix the method with `ForLocale` and pass the locale or an array of locales as the first parameter:
+If you need to apply a _method only for certain locales_, suffix the method with `ForLocale` and pass the locale or an array of locales as the first parameter:
 
 ```php
 TranslatableBootForm::text('Name', 'name')
