@@ -1,5 +1,6 @@
 # Laravel Translatable BootForms
 
+[![Actions Status](https://github.com/TypiCMS/Laravel-Translatable-Bootforms/workflows/run-tests/badge.svg)](https://github.com/TypiCMS/Laravel-Translatable-Bootforms/actions)
 [![Coverage Status](https://coveralls.io/repos/github/TypiCMS/Laravel-Translatable-Bootforms/badge.svg?branch=master)](https://coveralls.io/github/TypiCMS/Laravel-Translatable-Bootforms?branch=master)
 [![StyleCI](https://styleci.io/repos/56333065/shield?branch=master)](https://styleci.io/repos/56333065)
 
