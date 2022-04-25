@@ -30,7 +30,7 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider implements De
         $this->app->singleton('typicms.form', function ($app) {
             $locales = array_keys(config('typicms.locales', []));
             if (empty($locales)) {
-                $locales = config('translatable-bootforms.locales');
+                $locales = config('typicms.locales');
             }
             $formBuilder = new FormBuilder();
             $formBuilder->setLocales($locales);
@@ -46,7 +46,7 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider implements De
             $form = new TranslatableBootForm($app['typicms.bootform']);
             $locales = array_keys(config('typicms.locales', []));
             if (empty($locales)) {
-                $locales = config('translatable-bootforms.locales');
+                $locales = config('typicms.locales');
             }
             $form->locales($locales);
 
