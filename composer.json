@@ -21,7 +21,7 @@
     ],
     "require": {
         "php": "^8.0.2",
-        "illuminate/support": ">=9.2",
+        "illuminate/support": "~9.2",
         "typicms/form": "^3.0.0",
         "typicms/bootforms": "^4.0.0",
         "spatie/laravel-translatable": "^6.0"
