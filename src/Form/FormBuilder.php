@@ -9,10 +9,8 @@ class FormBuilder extends BaseFormBuilder
 {
     /**
      * Array of locale keys.
-     *
-     * @var array
      */
-    protected $locales = [];
+    protected array $locales = [];
 
     /**
      * Sets the available locales for translatable fields.

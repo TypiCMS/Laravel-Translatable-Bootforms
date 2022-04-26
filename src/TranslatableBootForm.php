@@ -3,71 +3,54 @@
 namespace TypiCMS\LaravelTranslatableBootForms;
 
 use Illuminate\Support\Str;
+use TypiCMS\BootForms\BootForm;
 
 class TranslatableBootForm
 {
     /**
      * BootForm implementation.
-     *
-     * @var \TypiCMS\BootForms\BootForm
      */
-    protected $form;
+    protected BootForm $form;
 
     /**
      * Array holding config values.
-     *
-     * @var array
      */
-    protected $config;
+    protected array $config;
 
     /**
      * Array of locale keys.
-     *
-     * @var array
      */
-    protected $locales;
+    protected array $locales;
 
     /**
      * The current element type this class is working on.
-     *
-     * @var string
      */
-    protected $element = '';
+    protected string $element = '';
 
     /**
      * The array of arguments to pass in when creating the element.
-     *
-     * @var array
      */
-    protected $arguments = [];
+    protected array $arguments = [];
 
     /**
      * A keyed array of method => arguments to call on the created input.
-     *
-     * @var array
      */
-    protected $methods = [];
+    protected array $methods = [];
 
     /**
      * Boolean indicating if the element should be cloned with corresponding translation name attributes.
-     *
-     * @var bool
      */
-    protected $cloneElement = false;
+    protected bool $cloneElement = false;
 
     /**
      * Boolean indicating if the element should have an indication that is it a translation.
-     *
-     * @var bool
      */
-    protected $translatableIndicator = false;
+    protected bool $translatableIndicator = false;
 
     /**
      * Array holding the mappable element arguments.
-     *
-     * @var array
      */
-    private $mappableArguments = [
+    private array $mappableArguments = [
         'text' => ['label', 'name', 'value'],
         'textarea' => ['label', 'name'],
         'password' => ['label', 'name'],
@@ -92,10 +75,8 @@ class TranslatableBootForm
 
     /**
      * Array holding the methods to call during element behavior processing.
-     *
-     * @var array
      */
-    private $elementBehaviors = [
+    private array $elementBehaviors = [
         'text' => ['cloneElement', 'translatableIndicator'],
         'textarea' => ['cloneElement', 'translatableIndicator'],
         'password' => ['cloneElement', 'translatableIndicator'],
