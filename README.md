@@ -8,8 +8,6 @@ Make [BootForms](https://github.com/TypiCMS/bootforms) work flawlessly with [Lar
 
 By importing this package, generating translatable forms using BootForms is a breeze.
 
-This package is adapted from [Propaganistas/Laravel-Translatable-Bootforms](https://github.com/Propaganistas/Laravel-Translatable-Bootforms).
-
 ### Installation
 
 1. Run the Composer require command to install the package, the service provider will be autodiscovered by Laravel.
