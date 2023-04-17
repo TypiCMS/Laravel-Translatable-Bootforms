@@ -15,5 +15,5 @@ class Model extends Eloquent
 
     protected $fillable = ['id', 'default', 'input'];
 
-    public $translatable = ['input'];
+    public array $translatable = ['input'];
 }
