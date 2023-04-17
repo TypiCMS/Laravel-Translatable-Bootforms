@@ -14,7 +14,7 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider implements De
     public function boot(): void
     {
         $this->publishes([
-            __DIR__.'/../config/config.php' => config_path('translatable-bootforms.php'),
+            __DIR__ . '/../config/config.php' => config_path('translatable-bootforms.php'),
         ], 'typicms-config');
     }
 
@@ -23,7 +23,7 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider implements De
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'translatable-bootforms');
+        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'translatable-bootforms');
 
         // Override BootForm's form builder in order to get model binding
         // between BootForm & TranslatableBootForm working.

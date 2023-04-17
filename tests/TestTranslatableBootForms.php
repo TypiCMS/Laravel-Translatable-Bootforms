@@ -4,6 +4,7 @@ namespace TypiCMS\LaravelTranslatableBootForms\Tests;
 
 use Illuminate\Database\Capsule\Manager as DB;
 use Orchestra\Testbench\TestCase;
+use ReflectionClass;
 use TypiCMS\BootForms\BootFormsServiceProvider;
 use TypiCMS\BootForms\Facades\BootForm;
 use TypiCMS\LaravelTranslatableBootForms\Facades\TranslatableBootForm;
@@ -12,6 +13,7 @@ use TypiCMS\LaravelTranslatableBootForms\TranslatableBootFormsServiceProvider;
 
 /**
  * @internal
+ *
  * @coversNothing
  */
 class TestTranslatableBootForms extends TestCase
@@ -96,12 +98,12 @@ class TestTranslatableBootForms extends TestCase
     {
         $this->bootform->open()->render();
 
-        $reflectionForm = new \ReflectionClass($this->form);
+        $reflectionForm = new ReflectionClass($this->form);
         $formProperty = $reflectionForm->getProperty('form');
         $formProperty->setAccessible(true);
         $bootform = $formProperty->getValue($this->form);
 
-        $reflectionBootform = new \ReflectionClass($bootform);
+        $reflectionBootform = new ReflectionClass($bootform);
         $builder = $reflectionBootform->getProperty('builder');
         $builder->setAccessible(true);
 
@@ -112,7 +114,7 @@ class TestTranslatableBootForms extends TestCase
     {
         $this->form->open()->render();
 
-        $reflectionForm = new \ReflectionClass($this->bootform);
+        $reflectionForm = new ReflectionClass($this->bootform);
         $builder = $reflectionForm->getProperty('builder');
         $builder->setAccessible(true);
 
@@ -127,22 +129,22 @@ class TestTranslatableBootForms extends TestCase
 
         $this->bootform->bind(Model::find(1));
 
-        $reflectionForm = new \ReflectionClass($this->form);
+        $reflectionForm = new ReflectionClass($this->form);
         $formProperty = $reflectionForm->getProperty('form');
         $formProperty->setAccessible(true);
         $bootform = $formProperty->getValue($this->form);
 
-        $reflectionBootform = new \ReflectionClass($bootform);
+        $reflectionBootform = new ReflectionClass($bootform);
         $builderProperty = $reflectionBootform->getProperty('builder');
         $builderProperty->setAccessible(true);
         $builder = $builderProperty->getValue($bootform);
 
-        $reflectionBuilder = new \ReflectionClass($builder);
+        $reflectionBuilder = new ReflectionClass($builder);
         $formBuilderProperty = $reflectionBuilder->getProperty('builder');
         $formBuilderProperty->setAccessible(true);
         $formBuilder = $formBuilderProperty->getValue($builder);
 
-        $reflectionFormbuilder = new \ReflectionClass($formBuilder);
+        $reflectionFormbuilder = new ReflectionClass($formBuilder);
         $modelProperty = $reflectionFormbuilder->getProperty('boundData');
         $modelProperty->setAccessible(true);
         $model = $modelProperty->getValue($formBuilder);
@@ -158,17 +160,17 @@ class TestTranslatableBootForms extends TestCase
 
         $this->form->bind(Model::find(1));
 
-        $reflectionBootform = new \ReflectionClass($this->bootform);
+        $reflectionBootform = new ReflectionClass($this->bootform);
         $builderProperty = $reflectionBootform->getProperty('builder');
         $builderProperty->setAccessible(true);
         $builder = $builderProperty->getValue($this->bootform);
 
-        $reflectionBuilder = new \ReflectionClass($builder);
+        $reflectionBuilder = new ReflectionClass($builder);
         $formBuilderProperty = $reflectionBuilder->getProperty('builder');
         $formBuilderProperty->setAccessible(true);
         $formBuilder = $formBuilderProperty->getValue($builder);
 
-        $reflectionFormbuilder = new \ReflectionClass($formBuilder);
+        $reflectionFormbuilder = new ReflectionClass($formBuilder);
         $modelProperty = $reflectionFormbuilder->getProperty('boundData');
         $modelProperty->setAccessible(true);
         $model = $modelProperty->getValue($formBuilder);
@@ -186,22 +188,22 @@ class TestTranslatableBootForms extends TestCase
 
         $this->bootform->close();
 
-        $reflectionForm = new \ReflectionClass($this->form);
+        $reflectionForm = new ReflectionClass($this->form);
         $formProperty = $reflectionForm->getProperty('form');
         $formProperty->setAccessible(true);
         $bootform = $formProperty->getValue($this->form);
 
-        $reflectionBootform = new \ReflectionClass($bootform);
+        $reflectionBootform = new ReflectionClass($bootform);
         $builderProperty = $reflectionBootform->getProperty('builder');
         $builderProperty->setAccessible(true);
         $builder = $builderProperty->getValue($bootform);
 
-        $reflectionBuilder = new \ReflectionClass($builder);
+        $reflectionBuilder = new ReflectionClass($builder);
         $formBuilderProperty = $reflectionBuilder->getProperty('builder');
         $formBuilderProperty->setAccessible(true);
         $formBuilder = $formBuilderProperty->getValue($builder);
 
-        $reflectionFormbuilder = new \ReflectionClass($formBuilder);
+        $reflectionFormbuilder = new ReflectionClass($formBuilder);
         $modelProperty = $reflectionFormbuilder->getProperty('boundData');
         $modelProperty->setAccessible(true);
         $model = $modelProperty->getValue($formBuilder);
@@ -219,17 +221,17 @@ class TestTranslatableBootForms extends TestCase
 
         $this->form->close();
 
-        $reflectionBootform = new \ReflectionClass($this->bootform);
+        $reflectionBootform = new ReflectionClass($this->bootform);
         $builderProperty = $reflectionBootform->getProperty('builder');
         $builderProperty->setAccessible(true);
         $builder = $builderProperty->getValue($this->bootform);
 
-        $reflectionBuilder = new \ReflectionClass($builder);
+        $reflectionBuilder = new ReflectionClass($builder);
         $formBuilderProperty = $reflectionBuilder->getProperty('builder');
         $formBuilderProperty->setAccessible(true);
         $formBuilder = $formBuilderProperty->getValue($builder);
 
-        $reflectionFormbuilder = new \ReflectionClass($formBuilder);
+        $reflectionFormbuilder = new ReflectionClass($formBuilder);
         $modelProperty = $reflectionFormbuilder->getProperty('boundData');
         $modelProperty->setAccessible(true);
         $model = $modelProperty->getValue($formBuilder);

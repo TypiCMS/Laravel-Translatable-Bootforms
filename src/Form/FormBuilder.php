@@ -32,7 +32,7 @@ class FormBuilder extends BaseFormBuilder
     {
         $inputName = preg_split('/[\[\]]+/', $name, -1, PREG_SPLIT_NO_EMPTY);
         if (count($inputName) == 2 && in_array($inputName[1], $this->locales)) {
-            list($name, $lang) = $inputName;
+            [$name, $lang] = $inputName;
             $translation = $this->boundData->data()->getTranslation($name, $lang);
             $value = $translation ?: '';
 
