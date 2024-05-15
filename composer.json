@@ -47,7 +47,10 @@
         "laravel": {
             "providers": [
                 "TypiCMS\\LaravelTranslatableBootForms\\TranslatableBootFormsServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "TranslatableBootForm": "TypiCMS\\LaravelTranslatableBootForms\\Facades\\TranslatableBootForm"
+            }
         }
     }
 }
