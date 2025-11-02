@@ -3,7 +3,7 @@
 namespace TypiCMS\LaravelTranslatableBootForms\Tests\Models;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
-use Spatie\Translatable\HasTranslations;
+use TypiCMS\Translatable\HasTranslations;
 
 class Model extends Eloquent
 {

@@ -1,6 +1,6 @@
 {
     "name": "typicms/laravel-translatable-bootforms",
-    "description": "Empowers typicms/bootforms with spatie/laravel-translatable.",
+    "description": "Empowers typicms/bootforms with typicms/laravel-translatable.",
     "keywords": [
         "laravel",
         "bootforms",
@@ -24,7 +24,7 @@
         "illuminate/support": "~10.0|~11.0|~12.0",
         "typicms/form": "^3.0.0",
         "typicms/bootforms": "^4.0.0",
-        "spatie/laravel-translatable": "^6.0"
+        "typicms/translatable": "^1.0"
     },
     "require-dev": {
         "orchestra/testbench": "~8.3.0",
