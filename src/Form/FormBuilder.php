@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace TypiCMS\LaravelTranslatableBootForms\Form;
 
 use TypiCMS\Form\Binding\BoundData;
@@ -34,9 +36,8 @@ class FormBuilder extends BaseFormBuilder
         if (count($inputName) == 2 && in_array($inputName[1], $this->locales)) {
             [$name, $lang] = $inputName;
             $translation = $this->boundData->data()->getTranslation($name, $lang);
-            $value = $translation ?: '';
 
-            return $value;
+            return $translation ?: '';
         }
 
         return $this->boundData->get($name, $default);

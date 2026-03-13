@@ -1,17 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace TypiCMS\LaravelTranslatableBootForms;
 
 use Illuminate\Support\Str;
 use TypiCMS\BootForms\BootForm;
 
-class TranslatableBootForm
+class TranslatableBootForm implements \Stringable
 {
-    /**
-     * BootForm implementation.
-     */
-    protected BootForm $form;
-
     /**
      * Array holding config values.
      */
@@ -101,9 +98,11 @@ class TranslatableBootForm
     /**
      * Form constructor.
      */
-    public function __construct(object $form)
+    public function __construct(/**
+     * BootForm implementation.
+     */
+    protected BootForm $form)
     {
-        $this->form = $form;
         $this->config = config('translatable-bootforms');
     }
 
@@ -113,7 +112,7 @@ class TranslatableBootForm
     public function __call(string $method, array $parameters): string|TranslatableBootForm
     {
         // New translatable form element.
-        if (empty($this->element())) {
+        if (in_array($this->element(), ['', '0'], true)) {
             $this->element($method);
             $this->arguments($this->mapArguments($parameters));
         } // Calling methods on the translatable form element.
@@ -198,7 +197,7 @@ class TranslatableBootForm
     {
         return is_null($clone)
             ? $this->cloneElement
-            : ($this->cloneElement = (bool) $clone);
+            : ($this->cloneElement = $clone);
     }
 
     /**
@@ -208,7 +207,7 @@ class TranslatableBootForm
     {
         return is_null($add)
             ? $this->translatableIndicator
-            : ($this->translatableIndicator = (bool) $add);
+            : ($this->translatableIndicator = $add);
     }
 
     /**
@@ -232,7 +231,7 @@ class TranslatableBootForm
 
         $parameters = is_array($parameters) ? $parameters : [$parameters];
 
-        $methods[] = compact('name', 'parameters');
+        $methods[] = ['name' => $name, 'parameters' => $parameters];
 
         $this->methods($methods);
     }
@@ -252,8 +251,8 @@ class TranslatableBootForm
 
             $locales = $this->locales();
             // Check if a custom locale set is requested.
-            if ($count = func_num_args()) {
-                $args = ($count == 1 ? head(func_get_args()) : func_get_args());
+            if (($count = func_num_args()) !== 0) {
+                $args = ($count === 1 ? head(func_get_args()) : func_get_args());
                 $locales = array_intersect($locales, (array) $args);
             }
 
@@ -264,12 +263,15 @@ class TranslatableBootForm
                 if ($this->translatableIndicator()) {
                     $this->setTranslatableLabelIndicator($locale);
                 }
+
                 if (!empty($this->config['form-group-class'])) {
                     $this->addMethod('addGroupClass', str_replace('%locale', $locale, 'form-group-translation'));
                 }
+
                 if (!empty($this->config['input-locale-attribute'])) {
                     $this->addMethod('attribute', [$this->config['input-locale-attribute'], $locale]);
                 }
+
                 $elements[] = $this->createInput($locale);
             }
         } else {
@@ -286,7 +288,7 @@ class TranslatableBootForm
      */
     public function renderLocale(): string
     {
-        return call_user_func_array([$this, 'render'], func_get_args());
+        return $this->render(...func_get_args());
     }
 
     /**
@@ -308,7 +310,7 @@ class TranslatableBootForm
 
                 // Check if method is locale-specific.
                 if (Str::endsWith($methodName, 'ForLocale')) {
-                    $methodName = mb_strstr($methodName, 'ForLocale', true);
+                    $methodName = mb_strstr((string) $methodName, 'ForLocale', true);
                     $locales = array_shift($methodParameters);
                     $locales = is_array($locales) ? $locales : [$locales];
                     if (!is_null($currentLocale) && !in_array($currentLocale, $locales)) {
@@ -333,10 +335,8 @@ class TranslatableBootForm
      * Replaces %name recursively with the proper input name.
      *
      * @param mixed $parameter
-     *
-     * @return mixed
      */
-    protected function replacePlaceholdersRecursively($parameter, string $currentLocale)
+    protected function replacePlaceholdersRecursively($parameter, string $currentLocale): string|array
     {
         if (is_array($parameter)) {
             foreach ($parameter as $param) {
@@ -352,7 +352,7 @@ class TranslatableBootForm
      */
     protected function applyElementBehavior(): void
     {
-        $behaviors = isset($this->elementBehaviors[$this->element()]) ? $this->elementBehaviors[$this->element()] : [];
+        $behaviors = $this->elementBehaviors[$this->element()] ?? [];
 
         foreach ($behaviors as $behavior) {
             $this->{$behavior}(true);
@@ -364,7 +364,7 @@ class TranslatableBootForm
      */
     protected function mapArguments(array $arguments): array
     {
-        $keys = isset($this->mappableArguments[$this->element()]) ? $this->mappableArguments[$this->element()] : [];
+        $keys = $this->mappableArguments[$this->element()] ?? [];
 
         return array_combine(array_slice($keys, 0, count($arguments)), $arguments);
     }
