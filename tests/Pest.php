@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Database\Capsule\Manager as DB;
 use TypiCMS\LaravelTranslatableBootForms\Tests\Models\Model;
 use TypiCMS\LaravelTranslatableBootForms\Tests\TestCase;
@@ -16,7 +18,7 @@ uses(TestCase::class)
 
 function configureDatabase(): void
 {
-    $db = new DB();
+    $db = new DB;
     $db->addConnection([
         'driver' => 'sqlite',
         'database' => ':memory:',

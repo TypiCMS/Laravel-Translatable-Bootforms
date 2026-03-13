@@ -1,6 +1,10 @@
 # Laravel Translatable BootForms
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/typicms/laravel-translatable-bootforms.svg?style=flat-square)](https://packagist.org/packages/typicms/laravel-translatable-bootforms)
 [![Actions Status](https://github.com/TypiCMS/Laravel-Translatable-Bootforms/workflows/tests/badge.svg)](https://github.com/TypiCMS/Laravel-Translatable-Bootforms/actions)
+[![PHPStan](https://github.com/TypiCMS/Laravel-Translatable-Bootforms/actions/workflows/phpstan.yml/badge.svg)](https://github.com/TypiCMS/Laravel-Translatable-Bootforms/actions/workflows/phpstan.yml)
+[![Pint](https://github.com/TypiCMS/Laravel-Translatable-Bootforms/actions/workflows/pint.yml/badge.svg)](https://github.com/TypiCMS/Laravel-Translatable-Bootforms/actions/workflows/pint.yml)
+[![Rector](https://github.com/TypiCMS/Laravel-Translatable-Bootforms/actions/workflows/rector.yml/badge.svg)](https://github.com/TypiCMS/Laravel-Translatable-Bootforms/actions/workflows/rector.yml)
 [![Coverage Status](https://coveralls.io/repos/github/TypiCMS/Laravel-Translatable-Bootforms/badge.svg?branch=master)](https://coveralls.io/github/TypiCMS/Laravel-Translatable-Bootforms?branch=master)
 
 Make [BootForms](https://github.com/TypiCMS/bootforms) work flawlessly with [Laravel Translatable](https://github.com/typicms/translatable)!

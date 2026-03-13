@@ -101,7 +101,7 @@ class TranslatableBootForm implements \Stringable
     public function __construct(/**
      * BootForm implementation.
      */
-    protected BootForm $form)
+        protected BootForm $bootForm)
     {
         $this->config = config('translatable-bootforms');
     }
@@ -153,7 +153,7 @@ class TranslatableBootForm implements \Stringable
     /**
      * Get or set the available locales.
      */
-    public function locales(array $locales = null): array
+    public function locales(?array $locales = null): array
     {
         return is_null($locales)
             ? $this->locales
@@ -173,7 +173,7 @@ class TranslatableBootForm implements \Stringable
     /**
      * Get or set the arguments.
      */
-    protected function arguments(array $arguments = null): array
+    protected function arguments(?array $arguments = null): array
     {
         return is_null($arguments)
             ? $this->arguments
@@ -183,7 +183,7 @@ class TranslatableBootForm implements \Stringable
     /**
      * Get or set the methods.
      */
-    protected function methods(array $methods = null): array
+    protected function methods(?array $methods = null): array
     {
         return is_null($methods)
             ? $this->methods
@@ -259,16 +259,16 @@ class TranslatableBootForm implements \Stringable
             foreach ($locales as $locale) {
                 $this->arguments($originalArguments);
                 $this->methods($originalMethods);
-                $this->overwriteArgument('name', $originalArguments['name'] . '[' . $locale . ']');
+                $this->overwriteArgument('name', $originalArguments['name'].'['.$locale.']');
                 if ($this->translatableIndicator()) {
                     $this->setTranslatableLabelIndicator($locale);
                 }
 
-                if (!empty($this->config['form-group-class'])) {
+                if (! empty($this->config['form-group-class'])) {
                     $this->addMethod('addGroupClass', str_replace('%locale', $locale, 'form-group-translation'));
                 }
 
-                if (!empty($this->config['input-locale-attribute'])) {
+                if (! empty($this->config['input-locale-attribute'])) {
                     $this->addMethod('attribute', [$this->config['input-locale-attribute'], $locale]);
                 }
 
@@ -299,7 +299,7 @@ class TranslatableBootForm implements \Stringable
     protected function createInput(?string $currentLocale = null)
     {
         // Create element using arguments.
-        $element = call_user_func_array([$this->form, $this->element()], array_values($this->arguments()));
+        $element = call_user_func_array([$this->bootForm, $this->element()], array_values($this->arguments()));
 
         // Elements such as 'bind' do not return renderable stuff and do not accept methods.
         if ($element) {
@@ -313,14 +313,14 @@ class TranslatableBootForm implements \Stringable
                     $methodName = mb_strstr((string) $methodName, 'ForLocale', true);
                     $locales = array_shift($methodParameters);
                     $locales = is_array($locales) ? $locales : [$locales];
-                    if (!is_null($currentLocale) && !in_array($currentLocale, $locales)) {
+                    if (! is_null($currentLocale) && ! in_array($currentLocale, $locales)) {
                         // Method should not be applied for this locale.
                         continue;
                     }
                 }
 
                 // Call method.
-                if (!empty($methodParameters)) {
+                if (! empty($methodParameters)) {
                     call_user_func_array([$element, $methodName], $this->replacePlaceholdersRecursively($methodParameters, $currentLocale));
                 } else {
                     $element->{$methodName}();
@@ -333,10 +333,8 @@ class TranslatableBootForm implements \Stringable
 
     /**
      * Replaces %name recursively with the proper input name.
-     *
-     * @param mixed $parameter
      */
-    protected function replacePlaceholdersRecursively($parameter, string $currentLocale): string|array
+    protected function replacePlaceholdersRecursively(mixed $parameter, string $currentLocale): string|array
     {
         if (is_array($parameter)) {
             foreach ($parameter as $param) {

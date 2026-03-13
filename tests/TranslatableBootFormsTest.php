@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 use TypiCMS\LaravelTranslatableBootForms\Tests\Models\Model;
 
 it('shares bootform formbuilder with translatable bootform', function (): void {
     $this->bootform->open()->render();
 
     $reflectionForm = new ReflectionClass($this->form);
-    $reflectionProperty = $reflectionForm->getProperty('form');
+    $reflectionProperty = $reflectionForm->getProperty('bootForm');
 
     $bootform = $reflectionProperty->getValue($this->form);
 
@@ -32,7 +34,7 @@ it('shares bootform bound model with translatable bootform', function (): void {
     $this->bootform->bind(Model::find(1));
 
     $reflectionForm = new ReflectionClass($this->form);
-    $reflectionProperty = $reflectionForm->getProperty('form');
+    $reflectionProperty = $reflectionForm->getProperty('bootForm');
 
     $bootform = $reflectionProperty->getValue($this->form);
 
@@ -82,7 +84,7 @@ it('shares bootform close with translatable bootform', function (): void {
     $this->bootform->close();
 
     $reflectionForm = new ReflectionClass($this->form);
-    $reflectionProperty = $reflectionForm->getProperty('form');
+    $reflectionProperty = $reflectionForm->getProperty('bootForm');
 
     $bootform = $reflectionProperty->getValue($this->form);
 
