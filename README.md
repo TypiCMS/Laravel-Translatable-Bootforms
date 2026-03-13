@@ -1,6 +1,6 @@
 # Laravel Translatable BootForms
 
-[![Actions Status](https://github.com/TypiCMS/Laravel-Translatable-Bootforms/workflows/run-tests/badge.svg)](https://github.com/TypiCMS/Laravel-Translatable-Bootforms/actions)
+[![Actions Status](https://github.com/TypiCMS/Laravel-Translatable-Bootforms/workflows/tests/badge.svg)](https://github.com/TypiCMS/Laravel-Translatable-Bootforms/actions)
 [![Coverage Status](https://coveralls.io/repos/github/TypiCMS/Laravel-Translatable-Bootforms/badge.svg?branch=master)](https://coveralls.io/github/TypiCMS/Laravel-Translatable-Bootforms?branch=master)
 
 Make [BootForms](https://github.com/TypiCMS/bootforms) work flawlessly with [Laravel Translatable](https://github.com/typicms/translatable)!
