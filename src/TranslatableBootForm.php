@@ -342,6 +342,10 @@ class TranslatableBootForm implements \Stringable
             }
         }
 
+        if (! is_string($parameter) && ! is_array($parameter)) {
+            $parameter = (string) $parameter;
+        }
+
         return str_replace(['%name', '%locale'], [$this->arguments()['name'], $currentLocale], $parameter);
     }
 
