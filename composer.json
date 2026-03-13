@@ -21,16 +21,17 @@
     ],
     "require": {
         "php": "^8.1",
-        "illuminate/support": "~10.0|~11.0|~12.0",
+        "illuminate/support": "~10.0|~11.0|~12.0|~13.0",
         "typicms/form": "^3.0.0",
         "typicms/bootforms": "^4.0.0",
-        "typicms/translatable": "^1.0"
+        "typicms/translatable": "^2.0"
     },
     "require-dev": {
-        "orchestra/testbench": "~8.3.0",
-        "phpunit/phpunit": "^9.5.10",
-        "php-coveralls/php-coveralls": "~2.5.2",
-        "nunomaduro/larastan": "^2.0"
+        "orchestra/testbench": "^8.0|^9.0|^10.0|^11.0",
+        "phpunit/phpunit": "^9.5|^10.0|^11.0",
+        "larastan/larastan": "^3.9",
+        "pestphp/pest": "^3.8",
+        "driftingly/rector-laravel": "^2.1"
     },
     "autoload": {
         "psr-4": {
@@ -42,7 +43,8 @@
             "TypiCMS\\LaravelTranslatableBootForms\\Tests\\": "tests/"
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "extra": {
         "laravel": {
             "providers": [
@@ -51,6 +53,11 @@
             "aliases": {
                 "TranslatableBootForm": "TypiCMS\\LaravelTranslatableBootForms\\Facades\\TranslatableBootForm"
             }
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
         }
     }
 }
