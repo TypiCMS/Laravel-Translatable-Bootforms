@@ -61,10 +61,8 @@ class TranslatableBootFormsServiceProvider extends ServiceProvider implements De
 
     /**
      * Get the services provided by the provider.
-     *
-     * @return array
      */
-    public function provides()
+    public function provides(): array
     {
         return [
             'typicms.form',

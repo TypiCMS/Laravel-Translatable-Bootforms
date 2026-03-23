@@ -121,7 +121,7 @@ class TranslatableBootForm implements \Stringable
         }
 
         // Execute bind or close immediately.
-        if (in_array($method, ['bind', 'close'])) {
+        if (in_array($method, ['bind', 'close'], true)) {
             return $this->render();
         }
 
